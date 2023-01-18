@@ -1,0 +1,32 @@
+/* Tables */
+.table {
+	margin-bottom: 3rem;
+
+	.table th {
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 18px;
+		color: #92512c;
+	}
+
+	th,
+	thead th,
+	td {
+		border-top: none;
+		border-bottom: .1rem solid #ebebeb;
+
+	}
+
+	th,
+	td {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+	}
+
+	td {
+		vertical-align: middle;
+	}
+}
