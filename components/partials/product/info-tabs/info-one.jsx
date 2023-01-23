@@ -98,7 +98,7 @@ function InfoOne(props) {
           </TabPanel>
 
           <TabPanel className="tab-pane">
-            <div className="reviews">
+            {/* <div className="reviews">
               {product.latest_reviews.map((review, idx) => (
                 <div className="review" key={idx}>
                   <div className="row no-gutters">
@@ -130,7 +130,7 @@ function InfoOne(props) {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {user ? (
               <div className="reply">

@@ -9,7 +9,7 @@ function CategoryMenu() {
   const [productCategories, setProductCategories] = useState([]);
 
   const loadProductCategories = async () => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/productcategories/getall";
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/productcategory/getall";
     const response = await postSubmitForm(url, null);
 
     setProductCategories(response.data);
@@ -38,10 +38,10 @@ function CategoryMenu() {
                   <>
                     <li key={idx} className={"sf-with-ul"}>
                       <ALink
-                        href={"/shop/sidebar/3cols?category=" + item.category}
+                        href={"/shop/sidebar/3cols?category=" + item.name}
                         scroll={false}
                       >
-                        {item.category}
+                        {item.name}
                       </ALink>
 
                       <ul className="menu-vertical sf-arrows ">

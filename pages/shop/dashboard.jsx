@@ -293,14 +293,8 @@ function DashBoard() {
   const { SearchBar } = Search;
 
   const handleLogout = async (e, v) => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/logout";
-    const response = await postSubmitForm(url, null);
-    if (response && response.status === 1) {
-      store.clearAll();
-      window.location.reload();
-    } else {
-      toast.error(response.message);
-    }
+    store.clearAll();
+    window.location.reload();
   };
 
   function toOrder(e) {

@@ -7,7 +7,7 @@ import { AvForm, AvField } from "availity-reactstrap-validation";
 import ALink from "~/components/features/alink";
 
 import { Row, Col, Label } from "reactstrap";
-import { postSubmitForm, getGeoInfo } from "~/helpers/forms_helper";
+import { postSubmitForm, getGeoInfo, postSubmitFormNoAuth } from "~/helpers/forms_helper";
 import { toast } from "react-toastify";
 import store from "store";
 import { isNumberValue } from "apollo-utilities";
@@ -66,110 +66,92 @@ function LoginModal() {
   }, []);
 
   const handleRegister = async (e, v) => {
-    const geo_response = await getGeoInfo();
-
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/getotp";
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/register";
 
     const response = await postSubmitForm(url, {
       mobile: v.mobile,
       email: v.email,
-      country: geo_response.country_name,
+      name:v.name,
+      pwd:v.pwd
+      
     });
     if (response && response.status === 1) {
-      setRegister({
-        name: v.name,
-        mobile: v.mobile,
-        email: v.email,
-        pwd: v.pwd,
-      });
-      setIsRegisterOTP(response.data.otp);
-      startOtpTimer("register");
-    }
-  };
-
-  const handleRegisterOTP = async (e, v) => {
-    if (isRegisterOTP == v.otp) {
-      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/register";
-      const response = await postSubmitForm(url, register);
-      if (response && response.status === 1) {
-        store.set("user", response.data);
-        setUser(store.get("user") ? store.get("user") : null);
-        setOpen(false);
-        setRegister({});
-        setIsRegisterOTP(null);
-        toast.success("Registration Successful.");
-      } else {
-        toast.error(response.message);
-      }
+      store.set("user", response.data);
+      setUser(store.get("user") ? store.get("user") : null);
+      setOpen(false);
+ 
+      toast.success(response.message);
+      window.location.reload();
     } else {
-      toast.error("Invalid OTP");
+      toast.error(response.message);
     }
   };
 
-  const handleLogin = async (e, v) => {
-    setMobileEmail(v.mobile_email);
-    if (!isNaN(v.mobile_email)) {
-      const geo_response = await getGeoInfo();
+  // const handleRegisterOTP = async (e, v) => {
+  //   if (isRegisterOTP == v.otp) {
+  //     let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/register";
+  //     const response = await postSubmitForm(url, register);
+  //     if (response && response.status === 1) {
+  //       store.set("user", response.data);
+  //       setUser(store.get("user") ? store.get("user") : null);
+  //       setOpen(false);
+  //       setRegister({});
+  //       setIsRegisterOTP(null);
+  //       toast.success("Registration Successful.");
+  //     } else {
+  //       toast.error(response.message);
+  //     }
+  //   } else {
+  //     toast.error("Invalid OTP");
+  //   }
+  // };
 
-      let url =
-        process.env.NEXT_PUBLIC_SERVER_URL + "/customers/checkmobilelogin";
+  // const handleLogin = async (e, v) => {
+  //   setMobileEmail(v.mobile_email);
+   
+  //     let url =
+  //       process.env.NEXT_PUBLIC_SERVER_URL + "/customers/checkemaillogin";
+  //     const response = await postSubmitForm(url, {
+  //       email: v.mobile_email,
+  //     });
+  //     if (response && response.status === 1) {
+  //       setIsLoginPassword(true);
+  //     } else {
+  //       toast.error(response.message);
+  //     }
+    
+  // };
 
-      const response = await postSubmitForm(url, {
-        mobile: v.mobile_email,
-        country: geo_response.country_name,
-      });
-      if (response && response.status === 1) {
-        setIsLoginOTP(response.data.otp);
+  // const handleLoginMobile = async (e, v) => {
+  //   if (isLoginOTP == v.otp) {
+  //     let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/loginmobile";
+  //     const response = await postSubmitForm(url, { mobile: mobileEmail });
+  //     if (response && response.status === 1) {
+  //       store.set("user", response.data);
 
-        startOtpTimer("login");
-      } else {
-        toast.error(response.message);
-      }
-    } else {
-      let url =
-        process.env.NEXT_PUBLIC_SERVER_URL + "/customers/checkemaillogin";
-      const response = await postSubmitForm(url, {
-        email: v.mobile_email,
-      });
-      if (response && response.status === 1) {
-        setIsLoginPassword(true);
-      } else {
-        toast.error(response.message);
-      }
-    }
-  };
-
-  const handleLoginMobile = async (e, v) => {
-    if (isLoginOTP == v.otp) {
-      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/loginmobile";
-      const response = await postSubmitForm(url, { mobile: mobileEmail });
-      if (response && response.status === 1) {
-        store.set("user", response.data);
-
-        setUser(store.get("user") ? store.get("user") : null);
-        setOpen(false);
-        setMobileEmail(null);
-        setIsLoginOTP(null);
-        toast.success("Login Successful.");
-        window.location.reload();
-      }
-    } else {
-      toast.error("Invalid OTP");
-    }
-  };
+  //       setUser(store.get("user") ? store.get("user") : null);
+  //       setOpen(false);
+  //       setMobileEmail(null);
+  //       setIsLoginOTP(null);
+  //       toast.success("Login Successful.");
+  //       window.location.reload();
+  //     }
+  //   } else {
+  //     toast.error("Invalid OTP");
+  //   }
+  // };
 
   const handleLoginPassword = async (e, v) => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/customers/loginemail";
-    const response = await postSubmitForm(url, {
-      email: mobileEmail,
+    let url = process.env.NEXT_PUBLIC_SERVER_URL +"/customers/login";
+    const response = await postSubmitFormNoAuth(url, {
+      email: v.email,
       pwd: v.pwd,
     });
     if (response && response.status === 1) {
       store.set("user", response.data);
       setUser(store.get("user") ? store.get("user") : null);
       setOpen(false);
-      setMobileEmail(null);
-      setIsLoginOTP(null);
+    
       toast.success("Login Successful.");
       window.location.reload();
     } else {
@@ -292,13 +274,13 @@ function LoginModal() {
                         {!isLoginOTP && !isLoginPassword && (
                           <Row>
                             <Col>
-                              <AvForm onValidSubmit={handleLogin}>
+                              <AvForm onValidSubmit={handleLoginPassword}>
                                 <Row>
                                   <Col lg={12}>
                                     <AvField
-                                      name="mobile_email"
-                                      label={"Mobile or Email *"}
-                                      type="text"
+                                      name="email"
+                                      label={" Email *"}
+                                      type="email"
                                       validate={{
                                         required: { value: true },
                                       }}
@@ -307,7 +289,17 @@ function LoginModal() {
                                       }
                                     />
                                   </Col>
-
+                                  <Col lg={12}>
+                                    <AvField
+                                      name="pwd"
+                                      label={"Password *"}
+                                      type="password"
+                                      validate={{
+                                        required: { value: true },
+                                      }}
+                                      errorMessage={"Password cannot be empty"}
+                                    />
+                                  </Col>
                                   <Col lg={12}>
                                     <div className="form-footer">
                                       <button
@@ -324,72 +316,8 @@ function LoginModal() {
                             </Col>
                           </Row>
                         )}
-                        {isLoginOTP && (
-                          <Row>
-                            <Col>
-                              <AvForm onValidSubmit={handleLoginMobile}>
-                                <Row>
-                                  <Col lg={12}>
-                                    <AvField
-                                      name="otp"
-                                      label={"OTP *"}
-                                      type="text"
-                                      maxLength={6}
-                                      validate={{
-                                        required: { value: true },
-                                      }}
-                                      errorMessage={"OTP cannot be empty"}
-                                    />
-                                  </Col>
-
-                                  <Col lg={12}>
-                                    <div className="form-footer">
-                                      <button
-                                        type="submit"
-                                        className="btn btn-outline-primary-2"
-                                      >
-                                        <span>SUBMIT</span>
-                                        <i className="icon-long-arrow-right"></i>
-                                      </button>
-
-                                      {isOtpTimer ? (
-                                        <Label
-                                          className="forgot-link"
-                                          style={{
-                                            color: "#a6c76c",
-                                          }}
-                                        >
-                                          Resend OTP in{" "}
-                                          <span
-                                            id="loginOtpTimer"
-                                            style={{
-                                              color: "green",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            60
-                                          </span>
-                                        </Label>
-                                      ) : (
-                                        <Label
-                                          className="forgot-link"
-                                          style={{
-                                            cursor: "pointer",
-                                            color: "#a6c76c",
-                                          }}
-                                          onClick={handleResendLoginOTP}
-                                        >
-                                          Resend OTP
-                                        </Label>
-                                      )}
-                                    </div>
-                                  </Col>
-                                </Row>
-                              </AvForm>
-                            </Col>
-                          </Row>
-                        )}
-                        {isLoginPassword && (
+                
+                        {/* {isLoginPassword && (
                           <Row>
                             <Col>
                               <AvForm onValidSubmit={handleLoginPassword}>
@@ -432,11 +360,11 @@ function LoginModal() {
                               </AvForm>
                             </Col>
                           </Row>
-                        )}
+                        )} */}
                       </TabPanel>
 
                       <TabPanel>
-                        {!isRegisterOTP && (
+                        
                           <Row>
                             <Col>
                               <AvForm onValidSubmit={handleRegister}>
@@ -535,70 +463,8 @@ function LoginModal() {
                               </AvForm>
                             </Col>
                           </Row>
-                        )}
-                        {isRegisterOTP && (
-                          <Row>
-                            <Col>
-                              <AvForm onValidSubmit={handleRegisterOTP}>
-                                <Row>
-                                  <Col lg={12}>
-                                    <AvField
-                                      name="otp"
-                                      label={"Enter OTP *"}
-                                      type="text"
-                                      maxLength={6}
-                                      validate={{ required: { value: true } }}
-                                      errorMessage={
-                                        "This field cannot be empty"
-                                      }
-                                    />
-                                  </Col>
-                                  <Col lg={12}>
-                                    <div className="form-footer">
-                                      <button
-                                        type="submit"
-                                        className="btn btn-outline-primary-2"
-                                      >
-                                        <span>SUBMIT</span>
-                                        <i className="icon-long-arrow-right"></i>
-                                      </button>
-                                      {isOtpTimer ? (
-                                        <Label
-                                          className="forgot-link"
-                                          style={{
-                                            color: "#a6c76c",
-                                          }}
-                                        >
-                                          Resend OTP in{" "}
-                                          <span
-                                            id="registerOtpTimer"
-                                            style={{
-                                              color: "green",
-                                              fontWeight: "bold",
-                                            }}
-                                          >
-                                            60
-                                          </span>
-                                        </Label>
-                                      ) : (
-                                        <Label
-                                          className="forgot-link"
-                                          style={{
-                                            cursor: "pointer",
-                                            color: "#a6c76c",
-                                          }}
-                                          onClick={handleResendRegisterOTP}
-                                        >
-                                          Resend OTP
-                                        </Label>
-                                      )}
-                                    </div>
-                                  </Col>
-                                </Row>
-                              </AvForm>
-                            </Col>
-                          </Row>
-                        )}
+                        
+                       
                       </TabPanel>
                     </div>
                   </Tabs>

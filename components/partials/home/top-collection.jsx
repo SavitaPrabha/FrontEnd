@@ -148,7 +148,7 @@ function TopCollection(props) {
                       className="col-6 col-md-4 col-lg-3 col-xl-5col"
                       key={index}
                     >
-                      <ProductTwelveCombo combo={item} />
+                      {/* <ProductTwelveCombo combo={item} /> */}
                     </div>
                   ))}
               </div>

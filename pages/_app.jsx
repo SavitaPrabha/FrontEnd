@@ -38,17 +38,17 @@ const App = ({ Component, pageProps, store }) => {
         <Helmet>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="keywords" content="Molla React Template" />
-          <meta name="description" content="GRV – Furniture & Mattress." />
+          <meta name="description" content="ECom" />
           <meta name="author" content="d-themes" />
           <meta name="apple-mobile-web-app-title" content="Molla" />
-          <meta name="application-name" content="GRV – Furniture & Mattress." />
+          <meta name="application-name" content="ECom" />
           <meta name="msapplication-TileColor" content="#cc9966" />
           <meta
             name="msapplication-config"
             content="images/icons/browserconfig.xml"
           />
           <meta name="theme-color" content="#ffffff" />
-          <title>GRV – Furniture & Mattress.</title>
+          <title>ECom</title>
           <link
             rel="apple-touch-icon"
             sizes="180x180"

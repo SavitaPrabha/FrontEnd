@@ -33,7 +33,7 @@ function ProductDefault() {
 
   const getProduct = async () => {
     try {
-      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/product_by_id";
+      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/products/get_by_id";
       const response = await postSubmitForm(url, { id });
       // console.log(response.data)
       setProduct(response.data);

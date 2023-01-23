@@ -14,7 +14,7 @@ function GalleryDefault(props) {
       setPhotoIndex(0);
       let productColor = product.color;
       console.log(productColor);
-      if (product && product.imageUrls) setselectedImage(product.imageUrls[0]);
+      if (product && product.image_url) setselectedImage(product.image_url);
     }
   }, [product]);
 
@@ -70,14 +70,14 @@ function GalleryDefault(props) {
             ) : (
               ""
             )}
-            {product.variant_details[0].offer &&
+            {/* {product.variant_details[0].offer &&
             product.variant_details[0].offer.name ? (
               <b className="product-label label-square label-offer">
                 {product.variant_details[0].offer.name}
               </b>
             ) : (
               ""
-            )}
+            )} */}
             {product.top_label ? (
               <span className="product-label label-top">Top</span>
             ) : (
@@ -136,12 +136,12 @@ function GalleryDefault(props) {
       {isOpen ? (
         <LightBox
           mainSrc={
-            product.imageUrls && product.imageUrls.length
-              ? product.imageUrls[photoIndex]
+            product.image_url && product.image_url.length
+              ? product.image_url[photoIndex]
               : ""
           }
-          nextSrc={product.imageUrls[photoIndex + 1]}
-          prevSrc={product.imageUrls[photoIndex > 0 ? photoIndex - 1 : 0]}
+          nextSrc={product.image_url[photoIndex + 1]}
+          prevSrc={product.image_url[photoIndex > 0 ? photoIndex - 1 : 0]}
           onCloseRequest={closeLightBox}
           onMovePrevRequest={moveNextPhoto}
           onMoveNextRequest={movePrevPhoto}

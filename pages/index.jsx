@@ -46,14 +46,14 @@ function Home() {
     [sidebarImage, setSidebarImage] = useState([]);
 
   const getHomeProducts = async () => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/home_data";
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/products/getall";
     const response = await postSubmitForm(url, null);
     //console.log(response.data,"Ashish")
-    setProducts(response.data.latest_products);
-    setCombos(response.data.latest_combos);
-    setDealsAndPromotions(response.data.deals_promotions);
-    setRated(response.data.top_rated);
-    setTopProducts(attrFilter(response.data.latest_products, "all"));
+    setProducts(response.data);
+    setCombos(response.data);
+    setDealsAndPromotions(response.data);
+    setRated(response.data);
+    setTopProducts(response.data);
     setLoading(false);
   };
 
@@ -109,27 +109,27 @@ function Home() {
           adClass="owl-simple"
           options={introSlider}
         >
-          {sidebarImage.map((i) => {
-            return (
-              <> <a
-              href={i.url}
+          <>
+              
+              <a
+              href={"#"}
             
             >
                 <div
-                  className="intro-slide slide3"
+                  className="intro-slide slide2"
                 >
                  
                     <img
-                      src={i.image_url}
+                      src={"https://img.freepik.com/free-photo/magnificent-woman-long-bright-skirt-dancing-studio-carefree-inspired-female-model-posing-with-pleasure-yellow_197531-11084.jpg?w=1380&t=st=1674466685~exp=1674467285~hmac=e4aed7ff01d94bf78771fa07847a6205422d30b1bc3729968f7645b02bc431f6"}
                       className="position-absolute"
                       alt="slide"
                     />
                 
 
-                  <div className="container intro-content">
-                    {/* <Fade direction="up">
+                  <div className="container intro-content" style={{marginTop:"100px"}}>
+                    <Fade direction="up">
                  <>
-                   <h3 className="intro-subtitle">Deals and Promotions</h3>
+                   <h2 className="intro-subtitle">Deals and Promotions</h2>
                    <h1 className="intro-title">
                      Great offers <br />
                      on first purchase <br />
@@ -143,13 +143,12 @@ function Home() {
                      <i className="icon-long-arrow-right"></i>
                    </ALink>
                  </>
-               </Fade> */}
+               </Fade>
                   </div>
                 </div>
                 </a>
               </>
-            );
-          })}
+           
         </OwlCarousel>
      
       </div>
