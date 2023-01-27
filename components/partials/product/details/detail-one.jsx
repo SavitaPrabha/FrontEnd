@@ -252,15 +252,15 @@ function DetailOne(props) {
     e.preventDefault();
     if (e.currentTarget.classList.contains("btn-disabled")) return;
 
-    const price = await updatePrice();
+   
     let newProduct = { ...product };
 
     newProduct = {
       ...product,
       name: product.name,
-      //mrp: variant && variant.offer ? minPrice : product.price,
-      price: price,
-      variant_details: variant,
+      category:product.category,
+      price: product.price,
+      
     };
     console.log("newProduct", newProduct);
     props.addToCart(newProduct, index == 0 ? qty : qty2);
@@ -553,7 +553,7 @@ function DetailOne(props) {
                 >
                   <img
                     src={
-                      product && product.imageUrls ? product.imageUrls[0] : ""
+                      product && product.imageUrls ? product.image_url : ""
                     }
                     alt="product"
                   />

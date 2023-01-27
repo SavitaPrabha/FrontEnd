@@ -81,7 +81,7 @@ function Wishlist(props) {
                             >
                               <img
                                 src={
-                                  product.imageUrls[0] ||
+                                  product.image_url ||
                                   product.variant_details[0].variantImgUrl[0]
                                 }
                                 alt="product"
@@ -94,7 +94,7 @@ function Wishlist(props) {
                             >
                               <img
                                 src={
-                                  product.imageUrls[0] ||
+                                  product.image_url ||
                                   product.variant_details[0].variantImgUrl[0]
                                 }
                                 alt="product"

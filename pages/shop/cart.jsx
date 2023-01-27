@@ -395,12 +395,12 @@ function Cart(props) {
                           <tr key={index}>
                             <td className="product-col">
                               <div className="product">
-                                {item.imageUrls[0] || item.variant_details ? (
+                                {item.image_url || item.variant_details ? (
                                   <figure className="product-media">
                                     <ALink href={""} className="product-image">
                                       <img
                                         src={
-                                          item.imageUrls[0] ||
+                                          item.image_url ||
                                           item.variant_details[0]
                                             .variantImgUrl[0]
                                         }

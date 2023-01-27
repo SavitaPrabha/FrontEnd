@@ -160,9 +160,7 @@ function ProductTwelve(props) {
           {product.image_url.length  ? (
             <LazyLoadImage
               alt="product"
-              src={
-                 product.image_url
-              }
+              src={ product.image_url }
               threshold={500}
               effect="black and white"
               wrapperClassName="product-image-hover"
