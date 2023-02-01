@@ -22,15 +22,15 @@ function ProductEleven(props) {
     let min = minPrice;
     let max = maxPrice;
     min =
-      product && product.variant_details[0].offer
+      product && product.image_url.offer
         ? offerPrice(
-            parseFloat(product.variant_details[0].variantPrice),
-            product.variant_details[0].offer
+            parseFloat(product.image_url.variantPrice),
+            product.image_url.offer
           )
         : undefined; //Setting root image initially
     max =
-      product && product.variant_details[0].variantPrice
-        ? product.variant_details[0].variantPrice
+      product && product.image_url.variantPrice
+        ? product.image_url.variantPrice
         : ""; //Setting root image initially
     if (min) {
       setMinPrice(min);
@@ -38,28 +38,28 @@ function ProductEleven(props) {
     setMaxPrice(max);
     if (
       product &&
-      product.variant_details[0] &&
-      product.variant_details[0].offer
+      product.image_url &&
+      product.image_url.offer
     )
-      setselectedOffer(product.variant_details[0].offer);
+      setselectedOffer(product.image_url.offer);
   }, []);
 
   function onCartClick(e) {
     let newProduct = {
       ...product,
       name: product.name,
-      mrp: parseFloat(product.variant_details[0].variantPrice),
-      color: product.variant_details[0].color,
-      offer: product.variant_details[0].offer,
+      mrp: parseFloat(product.image_url.variantPrice),
+      color: product.image_url.color,
+      offer: product.image_url.offer,
       offerPrice: offerPrice(
-        parseFloat(product.variant_details[0].variantPrice),
-        product.variant_details[0].offer
+        parseFloat(product.image_url.variantPrice),
+        product.image_url.offer
       ),
-      weight: product.variant_details[0].weight,
-      size: product.variant_details[0].size,
-      imageUrls: product.variant_details[0].variantImgUrl,
-      assembly_charges: product.variant_details[0].assembly_charges,
-      is_online: product.variant_details[0].is_online,
+      weight: product.image_url.weight,
+      size: product.image_url.size,
+      imageUrls: product.image_url.variantImgUrl,
+      assembly_charges: product.image_url.assembly_charges,
+      is_online: product.image_url.is_online,
     };
     e.preventDefault();
 
@@ -70,18 +70,18 @@ function ProductEleven(props) {
     let newProduct = {
       ...product,
       name: product.name,
-      mrp: parseFloat(product.variant_details[0].variantPrice),
-      color: product.variant_details[0].color,
-      offer: product.variant_details[0].offer,
+      mrp: parseFloat(product.image_url.variantPrice),
+      color: product.image_url.color,
+      offer: product.image_url.offer,
       offerPrice: offerPrice(
-        parseFloat(product.variant_details[0].variantPrice),
-        product.variant_details[0].offer
+        parseFloat(product.image_url.variantPrice),
+        product.image_url.offer
       ),
-      weight: product.variant_details[0].weight,
-      size: product.variant_details[0].size,
-      imageUrls: product.variant_details[0].variantImgUrl,
-      assembly_charges: product.variant_details[0].assembly_charges,
-      is_online: product.variant_details[0].is_online,
+      weight: product.image_url.weight,
+      size: product.image_url.size,
+      imageUrls: product.image_url.variantImgUrl,
+      assembly_charges: product.image_url.assembly_charges,
+      is_online: product.image_url.is_online,
     };
 
     e.preventDefault();
@@ -146,14 +146,14 @@ function ProductEleven(props) {
         ) : (
           ""
         )}
-        {product.variant_details[0].offer &&
-        product.variant_details[0].offer.name ? (
+        {/* {product.image_url.offer &&
+        product.image_url.offer.name ? (
           <b className="product-label label-square label-offer">
-            {product.variant_details[0].offer.name}
+            {product.image_url.offer.name}
           </b>
         ) : (
           ""
-        )}
+        )} */}
         {product.top_label ? (
           <span className="product-label label-top">Top</span>
         ) : (
@@ -169,7 +169,7 @@ function ProductEleven(props) {
         <ALink href={`/product/default/${product._id}`}>
           <LazyLoadImage
             alt="product"
-            src={product.variant_details[0].variantImgUrl[0]}
+            src={product.image_url}
             threshold={500}
             effect="black and white"
             wrapperClassName="product-image"
@@ -177,7 +177,7 @@ function ProductEleven(props) {
           {product.image2 ? (
             <LazyLoadImage
               alt="product"
-              src={product.variant_details[0].variantImgUrl[0]}
+              src={product.image_url}
               threshold={500}
               // style={{ padding: "75%" }}
               effect="black and white"
@@ -308,39 +308,13 @@ function ProductEleven(props) {
           <ALink href={`/product/default/${product._id}`}>{product.name}</ALink>
         </h3>
 
-        {minPrice && maxPrice ? (
-          product.stock == 0 ? (
-            <div className="product-price">
+        <div className="product-price">
               <span className="out-price">
-                {minPrice == maxPrice ? (
+                
                   <span>${product.price.toFixed(2)}</span>
-                ) : (
-                  <span>
-                    ${minPrice.toFixed(2)}&ndash;${maxPrice.toFixed(2)}
-                  </span>
-                )}
+               
               </span>
             </div>
-          ) : minPrice == maxPrice ? (
-            <b className=" mt-1" style={{ color: "#00bd10" }}>
-              ${minPrice?.toFixed(2)}
-            </b>
-          ) : (
-            <div className="product-price mt-1" style={{ display: "inline" }}>
-              <div>
-                <span style={{ textDecoration: "line-through", color: "red" }}>
-                  ${maxPrice?.toFixed(2)}
-                </span>{" "}
-                {discountedValue()}{" "}
-              </div>
-              <b className="discount-value " style={{ color: "#00bd10" }}>
-                ${minPrice.toFixed(2)}
-              </b>
-            </div>
-          )
-        ) : (
-          ""
-        )}
         {/* {!product.stock || product.stock == 0 ? (
           <div className="product-price">
             <span className="out-price">${product.mrp.toFixed(2)}</span>
@@ -364,9 +338,9 @@ function ProductEleven(props) {
               className="ratings-val"
               style={{ width: product.ratings * 20 + "%" }}
             ></div>
-            <span className="tooltip-text">{product.ratings.toFixed(1)}</span>
+            
           </div>
-          <span className="ratings-text">( {product.review} Reviews )</span>
+        
         </div>
 
         {/* {product.variants.length > 0 ? (

@@ -80,12 +80,13 @@ function DashBoard() {
   console.log(productsDetails, "Ashish");
   const [complaint, setComplaint] = useState();
   const getComplaint = async (e, v) => {
+    let obj={
+      customer_id:user._id
+    }
     let url =
       process.env.NEXT_PUBLIC_SERVER_URL + "/complaint/get_by_customer_id";
-    const response =
-      customerId && customerId._id
-        ? await postSubmitForm(url, { id: customerId._id })
-        : { status: 0 };
+    const response = await postSubmitForm(url, obj)
+       
     if (response && response.status === 1) {
       console.log(response);
       setComplaint(response.data);
@@ -500,7 +501,7 @@ function DashBoard() {
                       <Tab
                         className="nav-item"
                         onClick={() => {
-                          getOrders();
+                          // getOrders();
                           getComplaint();
                         }}
                       >
@@ -941,16 +942,16 @@ function DashBoard() {
                                           </h3>
 
                                           <p>
-                                            <strong>
+                                            {/* <strong>
                                               {" "}
                                               Complaint No: {ele.complain_no}
-                                            </strong>{" "}
+                                            </strong>{" "} */}
                                             <br />
                                             <strong> Massage:</strong>{" "}
                                             {ele.message}
-                                            <br />
+                                            {/* <br />
                                             <strong> Status:</strong>{" "}
-                                            {ele.status}
+                                            {ele.status} */}
                                             <br />
                                             <strong> Update At:</strong>{" "}
                                             {moment(ele.updatedAt).format(

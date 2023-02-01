@@ -43,7 +43,7 @@ export const canAddToCart = (cartItems, product, qty) => {
   } else {
     if (product.stock == 0 || product.stock < qty) return false;
     else return true;
-  }
+  } 
 };
 
 /**

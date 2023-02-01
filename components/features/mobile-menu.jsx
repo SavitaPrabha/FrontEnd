@@ -15,7 +15,7 @@ function MobileMenu() {
   }, []);
 
   const loadProductCategories = async () => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/productcategories/getall";
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/productcategory/getall";
     const response = await postSubmitForm(url, null);
 
     setProductCategories(response.data);

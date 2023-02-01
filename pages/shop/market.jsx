@@ -40,7 +40,7 @@ function ShopMarket() {
   useEffect(() => {
     getProducts({
       variables: {
-        searchTerm: query.searchTerm,
+        name: query.name,
         color: query.color ? query.color.split(",") : [],
         size: query.size ? query.size.split(",") : [],
         brand: query.brand ? query.brand.split(",") : [],

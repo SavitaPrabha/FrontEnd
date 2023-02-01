@@ -104,7 +104,7 @@ function HeaderSearch() {
     router.push({
       pathname: "/shop/sidebar/3cols",
       query: {
-        searchTerm: searchTerm,
+        name: searchTerm,
         //category: cat
       },
     });

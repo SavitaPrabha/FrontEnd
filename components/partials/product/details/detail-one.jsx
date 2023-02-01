@@ -395,13 +395,13 @@ function DetailOne(props) {
       <div className="product-price mt-1" style={{ display: "inline" }}>
            
            <b className="discount-value " style={{ color: "#00bd10" }}>
-           ${product.price.toFixed(2)}
+           {product.price.toFixed(2)}
            </b>
          </div>
 
-      <div className="product-content">
+      {/* <div className="product-content">
         <p>{product.highlights}</p>
-      </div>
+      </div> */}
 
       <div className="details-filter-row details-row-size">
         <label htmlFor="qty">Qty:</label>

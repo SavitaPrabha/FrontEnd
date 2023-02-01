@@ -44,7 +44,7 @@ function CategoryMenu() {
                         {item.name}
                       </ALink>
 
-                      <ul className="menu-vertical sf-arrows ">
+                      {/* <ul className="menu-vertical sf-arrows ">
                         {item.sub_category &&
                           item.sub_category.map((i, idx) => {
                             return (
@@ -72,7 +72,7 @@ function CategoryMenu() {
                               </>
                             );
                           })}
-                      </ul>
+                      </ul> */}
                     </li>
                   </>
                 );

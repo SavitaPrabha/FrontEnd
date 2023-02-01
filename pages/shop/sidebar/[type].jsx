@@ -22,7 +22,7 @@ function ShopGrid() {
   // const [getProducts, { data, loading, error }] = useLazyQuery(GET_PRODUCTS);
   const getProducts = async (variables) => {
     //console.log("getproducts");
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/products/ecom_data";
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/products/filter_products";
     console.log(variables);
     const response = await postSubmitForm(url, { variables: variables });
     if (response && response.status === 1) {
@@ -61,7 +61,7 @@ function ShopGrid() {
     getProducts({
       size:query.size,
       sub_category:query.sub_category,
-      searchTerm: query.searchTerm,
+      name: query.name,
       category: query.category,
       color: query.color ? query.color.split(",") : [],
       minPrice: parseInt(query.minPrice),
@@ -144,7 +144,7 @@ function ShopGrid() {
             {/* <li className="breadcrumb-item active">{pageTitle}</li> */}
             {query.search ? (
               <li className="breadcrumb-item">
-                <span>Search - {query.searchTerm}</span>
+                <span>Search - {query.name}</span>
               </li>
             ) : (
               ""

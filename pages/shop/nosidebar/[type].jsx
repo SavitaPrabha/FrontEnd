@@ -33,7 +33,7 @@ function ShopNoSidebar() {
   useEffect(() => {
     getProducts({
       variables: {
-        searchTerm: query.searchTerm,
+        name: query.name,
         color: query.color ? query.color.split(",") : [],
         size: query.size ? query.size.split(",") : [],
         brand: query.brand ? query.brand.split(",") : [],
@@ -51,7 +51,7 @@ function ShopNoSidebar() {
   useEffect(() => {
     loadMoreProducts({
       variables: {
-        searchTerm: query.searchTerm,
+        name: query.name,
         color: query.color ? query.color.split(",") : [],
         size: query.size ? query.size.split(",") : [],
         brand: query.brand ? query.brand.split(",") : [],
@@ -147,7 +147,7 @@ function ShopNoSidebar() {
             <li className="breadcrumb-item active">{pageTitle}</li>
             {query.search ? (
               <li className="breadcrumb-item">
-                <span>Search - {query.searchTerm}</span>
+                <span>Search - {query.name}</span>
               </li>
             ) : (
               ""

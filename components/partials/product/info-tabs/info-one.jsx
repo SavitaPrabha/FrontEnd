@@ -14,11 +14,14 @@ function InfoOne(props) {
   const [tabIndex, setTabIndex] = useState(0);
   const [userrating, setUserRating] = useState();
   const [usercomment, setUserComment] = useState();
+  const [reviews, setReviews] = useState();
 
   const { product } = props;
 
   useEffect(() => {
+    loadReviews();
     setUser(store.get("user") ? store.get("user") : null);
+
   }, []);
 
   const convertFromJSONToHTML = (text) => {
@@ -55,8 +58,11 @@ function InfoOne(props) {
     }
     const data_to_send = {
       product_id: product._id,
-      rating: userrating,
-      comment: usercomment,
+        product_name:product.name ,
+        customer_id:user._id ,
+        customer_name:user.name ,
+        rating:userrating,
+        comment:usercomment,
     };
 
     let url = process.env.NEXT_PUBLIC_SERVER_URL + "/reviews/insert";
@@ -65,13 +71,22 @@ function InfoOne(props) {
       toast.success(response.message);
 
       window.location.reload();
-    } else {
-      toast.error(response.message);
-    }
+    } 
   };
 
   if (!product) {
     return <div></div>;
+  }
+  const loadReviews = async ()=>
+  {
+    
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/reviews/get_by_product_id";
+    const response = await postSubmitForm(url,{product_id:product._id});
+    if (response && response.status === 1) {
+      setReviews(response.data);
+    } else {
+      toast.error(response.message);
+    }
   }
 
   return (
@@ -83,54 +98,52 @@ function InfoOne(props) {
           </Tab>
 
           <Tab className="nav-item">
-            <span className="nav-link">Reviews ({product.reviews})</span>
+            <span className="nav-link">Reviews</span>
           </Tab>
         </TabList>
 
         <div className="tab-content">
           <TabPanel className="tab-pane">
-            <div
-              className="product-desc-content"
-              dangerouslySetInnerHTML={convertFromJSONToHTML(
-                product.descriptions
-              )}
-            ></div>
+            <div>{product.description?product.description:"No Description"}</div>
           </TabPanel>
 
           <TabPanel className="tab-pane">
-            {/* <div className="reviews">
-              {product.latest_reviews.map((review, idx) => (
-                <div className="review" key={idx}>
-                  <div className="row no-gutters">
-                    <div className="col-auto" style={{ width: "200px" }}>
-                      <h4>
-                        <ALink href="#">{review.customer_name}</ALink>
-                      </h4>
+            <div className="reviews">
+             {
+              reviews &&
+              <div className="review" >
+              <div className="row no-gutters">
+                <div className="col-auto" style={{ width: "200px" }}>
+                  <h4>
+                    <ALink href="#">{reviews && reviews.customer_name}</ALink>
+                  </h4>
 
-                      <div className="ratings-container">
-                        <div className="ratings">
-                          <div
-                            className="ratings-val"
-                            style={{ width: review.rating * 20 + "%" }}
-                          ></div>
-                          <span className="tooltip-text">
-                            {review.rating.toFixed(1)}
-                          </span>
-                        </div>
-                      </div>
-                      <span className="review-date mb-1">
-                        {moment(review.createdAt).calendar()}
+                  <div className="ratings-container">
+                    <div className="ratings">
+                      <div
+                        className="ratings-val"
+                        style={{ width:reviews && reviews.rating * 20 + "%" }}
+                      ></div>
+                      <span className="tooltip-text">
+                        {reviews &&reviews.rating.toFixed(1)}
                       </span>
                     </div>
-                    <div className="col">
-                      <div className="review-content">
-                        <p>{review.comment}</p>
-                      </div>
-                    </div>
+                  </div>
+                  <span className="review-date mb-1">
+                    {moment(reviews &&reviews.createdAt).calendar()}
+                  </span>
+                </div>
+                <div className="col">
+                  <div className="review-content">
+                    <p>{reviews &&reviews.comment}</p>
                   </div>
                 </div>
-              ))}
-            </div> */}
+              </div>
+            </div>
+             }
+                
+              
+            </div>
 
             {user ? (
               <div className="reply">

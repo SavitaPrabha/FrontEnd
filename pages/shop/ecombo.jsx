@@ -61,7 +61,7 @@ function Ecombo() {
                size: query.size ? [query.size] : [],
                name: query.name || "",
                sub_category: query.sub_category || "",
-               searchTerm: query.searchTerm || "",
+               name: query.name || "",
                category: query.category || "",
                color: query.color ? query.color.split(",") : [] || "",
                max_price: parseInt(query.minPrice) || "",
@@ -158,7 +158,7 @@ function Ecombo() {
                               {/* <li className="breadcrumb-item active">{pageTitle}</li> */}
                               {query.search ? (
                                    <li className="breadcrumb-item">
-                                        <span>Search - {query.searchTerm}</span>
+                                        <span>Search - {query.name}</span>
                                    </li>
                               ) : (
                                    ""
