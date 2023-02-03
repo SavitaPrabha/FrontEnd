@@ -47,6 +47,7 @@ function DashBoard() {
     getOrders();
     getComplaint();
   }, []);
+  {console.log(user,"user");}
   const options = [
     { value: "Alberta", label: "Alberta" },
     { value: "British Columbia", label: "British Columbia" },
@@ -81,7 +82,7 @@ function DashBoard() {
   const [complaint, setComplaint] = useState();
   const getComplaint = async (e, v) => {
     let obj={
-      customer_id:user._id
+      customer_id:"63ca5adf7d0699749308ea91"
     }
     let url =
       process.env.NEXT_PUBLIC_SERVER_URL + "/complaint/get_by_customer_id";
@@ -349,16 +350,16 @@ function DashBoard() {
   };
 
   const handleDeleteAddress = async (e, v) => {
-    //console.log(e.target.value);
     let url =
       process.env.NEXT_PUBLIC_SERVER_URL + "/customers/delete_address_web";
     const response = await postSubmitForm(url, { address_id: e.target.value });
     if (response && response.status === 1) {
-      toast.success(response.message);
       const u = store.get("user");
-      u.addresses = response.data.addresses;
+      u.addresses =response&&response.data&& response.data.addresses;
       store.set("user", u);
       setUser(u);
+      toast.success(response.message);
+    
     } else {
       toast.error(response.message);
     }
@@ -366,18 +367,15 @@ function DashBoard() {
 
   const handleValidAddress = async (e, v) => {
     console.log(v);
-    if (v.province == "") {
-      toast.error("Province is required");
-    } else {
+ 
       const data_to_send = {
         mobile: user.mobile,
         address: {
           _id: uuidv4(),
-          apartment_house_number: v.apartment_house_number,
+        house_number: v.apartment_house_number,
           street_address: v.street_address,
           city: v.city,
-          province: v.province,
-          pincode: v.pincode,
+           pincode: v.pincode,
         },
       };
       console.log(data_to_send);
@@ -394,7 +392,7 @@ function DashBoard() {
       } else {
         toast.error(response.message);
       }
-    }
+    
 
     //
   };
@@ -659,7 +657,7 @@ function DashBoard() {
                                               {" "}
                                               Apartment / House No.:
                                             </strong>{" "}
-                                            {address.apartment_house_number}
+                                            {address.house_number}
                                             <br />
                                             <strong>
                                               Street Address:
@@ -669,9 +667,7 @@ function DashBoard() {
                                             <strong>City: </strong>
                                             {address.city}
                                             <br />
-                                            <strong> Province:</strong>{" "}
-                                            {address.province}
-                                            <br />
+                                           
                                             <strong>Pincode: </strong>
                                             {address.pincode}
                                             <br />
@@ -930,16 +926,12 @@ function DashBoard() {
                             <p>See your complaint from here.</p>
 
                             <div className="row">
-                              {complaint &&
-                                complaint.length &&
-                                complaint.map((ele, index) => {
-                                  return (
-                                    <div className="col-lg-6">
+                              <div className="col-lg-6">
                                       <div className="card card-dashboard">
-                                        <div className="card-body">
-                                          <h3 className="card-title">
+                                        <div className="card-body mb-4">
+                                          {/* <h3 className="card-title">
                                             {`Complaint #${index + 1}`}
-                                          </h3>
+                                          </h3> */}
 
                                           <p>
                                             {/* <strong>
@@ -948,29 +940,30 @@ function DashBoard() {
                                             </strong>{" "} */}
                                             <br />
                                             <strong> Massage:</strong>{" "}
-                                            {ele.message}
+                                            {complaint.message}
                                             {/* <br />
                                             <strong> Status:</strong>{" "}
                                             {ele.status} */}
                                             <br />
                                             <strong> Update At:</strong>{" "}
-                                            {moment(ele.updatedAt).format(
-                                              "YYYY-MM-DD HH:mm"
+                                            {moment(complaint.updatedAt).format(
+                                              "DD-HH-YYYY HH:mm"
                                             )}
                                             <br />
                                             <strong>
                                               {" "}
                                               Complaint Date:
                                             </strong>{" "}
-                                            {moment(ele.createdAt).format(
-                                              "YYYY-MM-DD HH:mm"
+                                            {moment(complaint.createdAt).format(
+                                              "DD-HH-YYYY HH:mm"
                                             )}
                                           </p>
                                         </div>
                                       </div>
                                     </div>
-                                  );
-                                })}
+                                
+
+
                             </div>
                           </>
                         )}
@@ -1119,10 +1112,7 @@ function DashBoard() {
                             required
                           />
                         </Col>
-                        <Col lg={6}>
-                          <Label>Province</Label>
-                          <Select options={options} />
-                        </Col>
+                        
                         <Col lg={6}>
                           <AvField
                             name="pincode"

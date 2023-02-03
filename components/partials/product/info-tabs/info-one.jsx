@@ -71,7 +71,9 @@ function InfoOne(props) {
       toast.success(response.message);
 
       window.location.reload();
-    } 
+    } else{
+      toast.error(response.message);
+    }
   };
 
   if (!product) {

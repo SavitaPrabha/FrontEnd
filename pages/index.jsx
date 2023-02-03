@@ -84,7 +84,7 @@ function Home() {
   const handleSubscribe = async (e, v) => {
     e.preventDefault();
     if (validateEmail(subscriberEmail)) {
-      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/subscribers/subscribe";
+      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/subscribe/insert";
       const response = await postSubmitForm(url, {
         email: subscriberEmail,
         mobile: subscriberMobile,
