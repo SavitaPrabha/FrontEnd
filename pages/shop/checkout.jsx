@@ -24,7 +24,7 @@ function Checkout(props) {
     setCartTotal(localStorage.getItem("cartTotal") || "");
     setdiscountValue(localStorage.getItem("discountvalue") || "");
   }, []);
-
+console.log(cartlist,"kjhk")
   function clearOpacity() {
     if (document.querySelector("#checkout-discount-input").value == "")
       document
@@ -112,29 +112,18 @@ function Checkout(props) {
               <div className="col-lg-9">
                 <h1 className="checkout-title">Order Details :</h1>
                 <div className="row">
-                  <div
-                    className="col-sm-6"
-                    style={{ minHeight: 180, backgroundColor: "#eee" }}
-                  >
-                    <h2 className="checkout-title">Store Address</h2>
-                    <p>
-                      {props.cartlist[0].storeAddress.name}{" "}
-                      {props.cartlist[0].storeAddress.address}{" "}
-                      {props.cartlist[0].storeAddress.pincode}
-                    </p>
-                  </div>
-
+                
                   <div
                     className="col-sm-6"
                     style={{ minHeight: 180, backgroundColor: "#eee" }}
                   >
                     <h2 className="checkout-title">Shipping Address</h2>
                     <p>
-                      {props.cartlist[0].shippingAddress.apartment_house_number}{" "}
-                      {props.cartlist[0].shippingAddress.street_address}{" "}
-                      {props.cartlist[0].shippingAddress.city}{" "}
-                      {props.cartlist[0].shippingAddress.province}{" "}
-                      {props.cartlist[0].shippingAddress.pincode}
+                      {props.cartlist[0].storeAddress.house_number}{" "}
+                      {props.cartlist[0].storeAddress.street_address}{" "}
+                      {props.cartlist[0].storeAddress.city}{" "}
+                     
+                      {props.cartlist[0].storeAddress.pincode}
                     </p>
                   </div>
                   <div className="col-sm-6">
@@ -212,7 +201,7 @@ function Checkout(props) {
                         <td>Shipping:</td>
                         <td>
                           $
-                          {cartlist[0].shippingCost.toLocaleString(undefined, {
+                          {cartlist[0].sum.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                           })}
