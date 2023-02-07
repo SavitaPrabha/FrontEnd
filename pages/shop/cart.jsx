@@ -61,10 +61,8 @@ function Cart(props) {
   // 
   const changeQty = async (value, index) => {
     props.updateCart(props.cartItems, -1, -1, -1, {}, 0);
-    setCouponDiscount(0);
-    setCoupon();
-    setCouponData();
-
+   
+    
     setLoading(true);
     const cl = cartList.map((item, ind) => {
       if (ind == index) {
@@ -90,7 +88,7 @@ function Cart(props) {
    
    
 
-    if (selectedStore && selectedAddress) {
+    if (selectedAddress) {
       console.log("from changeQty");
       const shipping_charges = await get_shipping_charges(
         selectedStore.pincode,
@@ -130,18 +128,12 @@ function Cart(props) {
     setCartList(cl);
 
     if (selectedStore && selectedAddress) {
-      console.log("from handleIsAssemblyCharges");
-      const shipping_charges = await get_shipping_charges(
-        selectedStore.pincode,
-        selectedAddress.pincode,
-
-        cartPriceTotal(cl)
-      );
+     
 
       props.updateCart(
         cl,
         shipping_charges,
-        selectedStore,
+      
         selectedAddress,
         {},
         0
@@ -151,59 +143,22 @@ function Cart(props) {
     }
     setLoading(false);
 
-    setCouponDiscount(0);
-    setCoupon();
-    setCouponData();
+ 
   };
 
-  const [discountValue, setdiscountValue] = useState();
+  
 
   // 
   const handleProceedToCheckout = async () => {
-    let is_assembly_charges = false;
+ 
     localStorage.setItem("cartTotal", cartTotal+(cartTotal*13)/100);
     localStorage.setItem("discountvalue", discountValue);
 
-    cartList.map((item, ind) => {
-      if (item.is_assembly_charges == true) is_assembly_charges = true;
-    });
-    props.updateCart(props.cartItems, -1, -1, -1, -1, -1,(cartTotal*13)/100);
-    if (is_assembly_charges == true && distance_value > 250000)
-      toast.error("Assembling facility is not available beyond 250 km.");
-    else Router.push("/shop/checkout");
+   Router.push("/shop/checkout");
   };
 
-  const [coupon, setCoupon] = useState(null);
-  const [couponData, setCouponData] = useState(null);
-  const [couponDiscount, setCouponDiscount] = useState();
 
-  const handleValidCoupon = async (e, v) => {
-    console.log(coupon);
-    setLoading(true);
-
-    let url = process.env.NEXT_PUBLIC_ASSET_URI + "/coupons/is_valid_coupon";
-    const response = await postSubmitForm(url, {
-      coupon_code: coupon,
-      min_cart_value: cartTotal,
-    });
-    if (response && response.status === 1) {
-      console.log(response);
-      if (response.data) {
-        handleCouponDiscount(response.data);
-        setCouponData(response.data);
-
-        //
-        toast.success(response.message);
-      } else {
-        toast.warn(response.message);
-      }
-      setLoading(false);
-    } else {
-      setLoading(false);
-      toast.error("Please Enter Coupon Code");
-    }
-  };
-
+ 
   
 
   return (
@@ -454,6 +409,39 @@ function Cart(props) {
                                     </a>
                                   </>
                                 )}
+
+                                {
+                                  user&&selectedAddress&&
+                                  ( 
+                                  <Row>
+                                    <div className="col-lg-6">
+                                  <div className="card card-dashboard">
+                                    <div
+                                      className="card-body"
+                                    
+                                    >
+                                      <h5>Address </h5>
+                                      <p>
+                                        <strong> Apartment / House No.:</strong>{" "}
+                                        {selectedAddress.house_number}
+                                        <br />
+                                        <strong>Street Address:</strong>{" "}
+                                        {selectedAddress.street_address}
+                                        <br />
+                                        <strong>City: </strong>
+                                        {selectedAddress.city}
+                                        <br />
+                                       
+                                        <strong>Pincode: </strong>
+                                        {selectedAddress.pincode}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                  </Row>
+                                  
+                                  )
+                                }
                                 {user && !selectedAddress && (
                                   <>
                                     <p>No addresses found.</p>
@@ -469,28 +457,7 @@ function Cart(props) {
                               </td>
                               <td>&nbsp;</td>
                             </tr>
-                            {user && distance && selectedAddress && (
-                              <>
-                                <tr className="summary-shipping-estimate">
-                                  <td>
-                                    Shipping Charges :
-                                    <br />
-                                    <p>Distance: {distance}</p>
-                                  </td>
-                                  <td>
-                                    &nbsp;
-                                    <br />
-                                    <p>
-                                      $
-                                      {shippingCost.toLocaleString(undefined, {
-                                        minimumFractionDigits: 2,
-                                        maximumFractionDigits: 2,
-                                      })}
-                                    </p>
-                                  </td>
-                                </tr>
-                              </>
-                            )}
+                        
 
                            
 
@@ -509,14 +476,19 @@ function Cart(props) {
                           </tbody>
                         </table>
                  
-                        {user && selectedAddress && (
+                        {selectedAddress ?  (
                           <Button
                             className="btn btn-outline-primary-2 btn-order btn-block"
                             onClick={handleProceedToCheckout}
-                          >
-                            PROCEED TO CHECKOUT
+                          > 
+                            PROCEED TO PAY
                           </Button>
-                        )}
+                        ):<ALink
+                        href="#"
+                        style={{ color: "red" }}
+                      >
+                        <span>Select the Shipping Address</span>
+                      </ALink>}
                       
                       </>
                     )}
@@ -592,8 +564,7 @@ function Cart(props) {
                             <strong>City: </strong>
                             {address.city}
                             <br />
-                            <strong> Province:</strong> {address.province}
-                            <br />
+                           
                             <strong>Pincode: </strong>
                             {address.pincode}
                           </p>

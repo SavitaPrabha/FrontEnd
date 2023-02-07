@@ -97,10 +97,10 @@ const cartReducer = (state = initialState, action) => {
                 action.payload.coupon_discount != -1
                   ? action.payload.coupon_discount
                   : product.coupon_discount,
-                  hst:
-                  action.payload.hst != -1
-                    ? action.payload.hst
-                    : product.hst,
+                  gst:
+                  action.payload.gst != -1
+                    ? action.payload.gst
+                    : product.gst,
             });
 
             return acc;
@@ -144,7 +144,7 @@ export const actions = {
     shippingAddress = -1,
     coupon_details = -1,
     coupon_discount = -1,
-    hst = -1
+    gst = -1
   ) => ({
     type: actionTypes.updateCart,
     payload: {
@@ -154,7 +154,7 @@ export const actions = {
       shippingAddress: shippingAddress,
       coupon_details: coupon_details,
       coupon_discount: coupon_discount,
-      hst: hst,
+      gst: gst,
     },
   }),
 

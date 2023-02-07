@@ -14,7 +14,7 @@ import { postSubmitForm } from "~/helpers/forms_helper";
 
 function Checkout(props) {
   const { cartlist } = props;
-
+{console.log(cartlist),"cartlist"}
   const [orderProcessing, setOrderProcessing] = useState(false);
   const [cartTotal, setCartTotal] = useState();
   const [discountValue, setdiscountValue] = useState();
@@ -44,8 +44,7 @@ console.log(cartlist,"kjhk")
     setOrderProcessing(true);
 
     let url =
-      process.env.NEXT_PUBLIC_SERVER_URL + "/orders/create-checkout-session";
-
+      process.env.NEXT_PUBLIC_SERVER_URL + "/orders/place-order";
     const response = await postSubmitForm(url, {
       cartlist: cartlist,
       cartTotal: cartTotal,
@@ -238,10 +237,10 @@ console.log(cartlist,"kjhk")
                       )}
 
                       <tr>
-                        <td>HST(13%):</td>
+                        <td>GST(13%):</td>
                         <td>
                           $
-                          {String(cartlist[0].hst  || "").toLocaleString(undefined, {
+                          {String(cartlist[0].gst  || "").toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                           })}

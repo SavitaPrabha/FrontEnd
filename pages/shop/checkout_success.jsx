@@ -20,7 +20,7 @@ function CheckoutSuccess(props) {
     if (urlParams.get("session_id")) {
       const session_id = urlParams.get("session_id");
 
-      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/orders/checkout-success";
+      let url = process.env.NEXT_PUBLIC_SERVER_URL + "/orders/order-success";
 
       const response = await postSubmitForm(url, {
         session_id,
