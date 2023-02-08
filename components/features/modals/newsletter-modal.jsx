@@ -109,7 +109,7 @@ function NewsletterModal() {
                     off
                   </h4>
                   <p>
-                    Subscribe to the GRV Furniture to receive timely updates
+                    Subscribe to our company to receive timely updates
                     from your favorite products.
                   </p>
 

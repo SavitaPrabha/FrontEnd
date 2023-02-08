@@ -472,7 +472,7 @@ function LoginModal() {
                 <div>
                   By signing in or registering, you agree to our{" "}
                   <a
-                    href="https://grvfurniture.com/privacypolicy"
+                    // href="https://grvfurniture.com/privacypolicy"
                     target="_blank"
                   >
                     Privacy Policy

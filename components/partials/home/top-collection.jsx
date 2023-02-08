@@ -124,7 +124,7 @@ function TopCollection(props) {
         </div>
       </Tabs>
 
-      <Tabs defaultIndex={0} selectedTabClassName="show">
+      {/* <Tabs defaultIndex={0} selectedTabClassName="show">
         <div className="container">
           <div className="heading heading-center mb-3">
             <h2 className="title">Latest Combos</h2>
@@ -148,7 +148,7 @@ function TopCollection(props) {
                       className="col-6 col-md-4 col-lg-3 col-xl-5col"
                       key={index}
                     >
-                      {/* <ProductTwelveCombo combo={item} /> */}
+                       <ProductTwelveCombo combo={item} />
                     </div>
                   ))}
               </div>
@@ -156,7 +156,7 @@ function TopCollection(props) {
           </TabPanel>
 
         </div>
-      </Tabs>
+      </Tabs> */}
     </>
 
 

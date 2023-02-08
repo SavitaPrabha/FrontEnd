@@ -120,7 +120,7 @@ function Home() {
                 >
                  
                     <img
-                      src={"https://img.freepik.com/free-photo/magnificent-woman-long-bright-skirt-dancing-studio-carefree-inspired-female-model-posing-with-pleasure-yellow_197531-11084.jpg?w=1380&t=st=1674466685~exp=1674467285~hmac=e4aed7ff01d94bf78771fa07847a6205422d30b1bc3729968f7645b02bc431f6"}
+                      src={"images/banners/banner-1.jpg"}
                       className="position-absolute"
                       alt="slide"
                     />
@@ -130,15 +130,14 @@ function Home() {
                     <Fade direction="up">
                  <>
                    <h2 className="intro-subtitle">Deals and Promotions</h2>
-                   <h1 className="intro-title">
-                     Great offers <br />
-                     on first purchase <br />
-                     <span className="text-primary">Up to 30 %</span>
+                   <h1 className="intro-title" style={{color:"#ffffff"}}>
+                   Meet your <br />
+                   new heaven space <br />
+                     <span className="text" style={{color:"#b6afaf"}}>Up to 30 %</span>
                    </h1>
                    <ALink
                      href="/shop/sidebar/3cols"
-                     className="btn btn-dark btn-outline-darker"
-                   >
+                     className="btn btn-dark btn-outline-darker" style={{color:"#ffe6e6", border:"1px solid #ffe6e6"}}>
                      <span>Shop Now</span>
                      <i className="icon-long-arrow-right"></i>
                    </ALink>

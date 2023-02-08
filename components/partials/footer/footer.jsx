@@ -11,7 +11,7 @@ function Footer() {
   useEffect(() => {
     handleBottomSticky();
     setContainerClass(
-      router.asPath.includes("fullwidth") ? "container-fluid" : "container"
+      router.asPath.includes("fullwidth") ? "container-fluid" : "container-fluid"
     );
   }, [router.asPath]);
 
@@ -125,7 +125,7 @@ function Footer() {
                 <h4 className="widget-title">GRV App on mobile</h4>
                 <br />
                 <a
-                  href="https://play.google.com/store/apps/details?id=io.grv_mobile"
+                  // href="https://play.google.com/store/apps/details?id=io.grv_mobile"
                   target="_blank"
                 >
                   <img
@@ -136,7 +136,7 @@ function Footer() {
                   />
                 </a>
                 <a
-                  href="https://apps.apple.com/ca/app/grv-f-m/id6444937549"
+                  // href="https://apps.apple.com/ca/app/grv-f-m/id6444937549"
                   target="_blank"
                 >
                   <img
@@ -203,18 +203,19 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer-bottom">
+      <div className="footer-bottom" >
         <div className={containerClass}>
-          <p className="footer-copyright">
-            Copyright © {new Date().getFullYear()} GRV – Furniture and Mattress.
+      
+          <p className="footer-copyright" style={{color:"#ffffff"}} >
+            Copyright © {new Date().getFullYear()} s – Hukkha and Bongs.
             All Rights Reserved.
           </p>
 
           <div className="social-icons social-icons-color">
-            <span className="social-label">Social Media</span>
+            <span className="social-label" style={{color:"#ffffff"}}>Social Media</span>
 
             <a
-              href="https://www.facebook.com/mygrvfurniture"
+              // href="https://www.facebook.com/mygrvfurniture"
               className="social-icon social-facebook"
               rel="noopener noreferrer"
               title="Facebook"
@@ -224,7 +225,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/mygrvfurniture/"
+              // href="https://www.instagram.com/mygrvfurniture/"
               className="social-icon social-instagram"
               rel="noopener noreferrer"
               title="Instagram"
@@ -233,7 +234,7 @@ function Footer() {
               <img width="16px" src="images/instagram.png" />
             </a>
             <a
-              href="https://www.tiktok.com/@grvfurniture?lang=en"
+              // href="https://www.tiktok.com/@grvfurniture?lang=en"
               className="social-icon"
               rel="noopener noreferrer"
               title="TikTok"

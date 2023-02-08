@@ -66,7 +66,7 @@ function Header() {
                 alt="Logo"
                
               />
-                <p style={{color: 'rgb(171, 69, 10)', textAlign: 'center', fontSize: '15px'}}>FURNITURE & MATTRESS</p>
+                <p style={{color: 'rgb(171, 69, 10)', textAlign: 'center', fontSize: '15px'}}>A WAY OF LIFE</p>
             </ALink>
            
           </div>

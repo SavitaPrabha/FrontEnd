@@ -1,6 +1,6 @@
 /* Footer */
 .footer {
- 
+
   font-weight: 300;
   font-size: 1.4rem;
   color: #777;
@@ -111,6 +111,7 @@
 .footer-bottom {
   .container,
   .container-fluid {
+   
     position: relative;
     display: flex;
     align-items: center;
@@ -287,6 +288,7 @@
   .footer-bottom {
     .container,
     .container-fluid {
+      
       flex-direction: row;
     }
 
@@ -360,7 +362,8 @@
     padding-bottom: 0.4rem;
   }
 
-  .footer-bottom .container {
+  .footer-bottom .container-fluid {
+    background-image: url("/images/banners/banner-1.jpg");
     padding-top: 2.2rem;
     padding-bottom: 2.2rem;
     flex-direction: column-reverse;
@@ -372,6 +375,7 @@
     .footer-bottom .container,
     .footer-bottom .container-fluid {
       flex-direction: row;
+      
     }
   }
 }
