@@ -10,7 +10,7 @@ function WishlistMenu ( props ) {
         <div className="wishlist">
             <ALink href="/shop/wishlist" title="Wishlist">
                 <div className="icon">
-                    <i className="icon-heart-o"></i>
+                    <i className="icon-heart-o"style={{color: "red"}}></i>
                     <span className="wishlist-count badge">{ wishlist.length }</span>
                 </div>
                 <p>Wishlist</p>
