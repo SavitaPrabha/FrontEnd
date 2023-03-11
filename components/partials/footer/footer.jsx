@@ -50,7 +50,7 @@ function Footer() {
                         marginTop: "-20px",
                       }}
                     >
-                      FURNITURE &amp; MATTRESS
+                      Bongs &amp; Hukka
                     </p>
                     <br />
                     <p>

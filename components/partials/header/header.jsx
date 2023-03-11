@@ -64,9 +64,8 @@ function Header() {
               <img
                 src="images/logo.png"
                 alt="Logo"
-               
               />
-                <p style={{color: 'rgb(171, 69, 10)', textAlign: 'center', fontSize: '15px'}}>A WAY OF LIFE</p>
+              <p style={{color: 'rgb(171, 69, 10)', textAlign: 'center', fontSize: '15px'}}>Bongs and Hukka</p>
             </ALink>
            
           </div>

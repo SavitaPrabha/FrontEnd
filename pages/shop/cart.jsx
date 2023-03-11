@@ -150,15 +150,21 @@ function Cart(props) {
 
   // 
   const handleProceedToCheckout = async () => {
- 
+    let is_assembly_charges = false;
     localStorage.setItem("cartTotal", cartTotal+(cartTotal*13)/100);
-    localStorage.setItem("discountvalue", discountValue);
+   
 
-   Router.push("/shop/checkout");
+    cartList.map((item, ind) => {
+      if (item.is_assembly_charges == true) is_assembly_charges = true;
+    });
+    props.updateCart(props.cartItems, -1, -1, -1, -1, -1,(cartTotal*13)/100);
+    if (is_assembly_charges == true && distance_value > 250000)
+      toast.error("Assembling facility is not available beyond 250 km.");
+    else Router.push("/shop/checkout");
   };
 
 
- 
+ {console.log(cartTotal,"jkjnk")}
   
 
   return (
@@ -191,7 +197,7 @@ function Cart(props) {
                         <th>Product</th>
 
                         <th>Price</th>
-                        <th>Assembly Charges</th>
+                       
                         <th>Quantity</th>
                         <th>Total</th>
                         <th></th>
@@ -236,31 +242,7 @@ function Cart(props) {
                                   })
                                 : ""}
                             </td>
-                            <td className="assembly-charges-col">
-                              <input
-                                type="checkbox"
-                                id={"is_assembly_charges" + (index + 1)}
-                                disabled={
-                                  item?.assembly_charges > 0 ? false : true
-                                }
-                                value={item._id}
-                                onChange={handleIsAssemblyCharges}
-                                checked={item.is_assembly_charges}
-                              />{" "}
-                              <label
-                                title="Check to get product assembled at your shipping address."
-                                for={"is_assembly_charges" + (index + 1)}
-                              >
-                                $
-                                {item?.assembly_charges?.toLocaleString(
-                                  undefined,
-                                  {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2,
-                                  }
-                                )}
-                              </label>
-                            </td>
+                          
 
                             <td className="quantity-col">
                               <Qty
@@ -268,11 +250,11 @@ function Cart(props) {
                                 changeQty={(current) =>
                                   changeQty(current, index)
                                 }
-                                adClass="cart-product-quantity"
+                                adClass="cart-product-quantity" 
                               ></Qty>
                             </td>
 
-                            <td className="total-col">
+                            <td className="total-col" >
                               $
                               {item.sum?.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
@@ -285,8 +267,7 @@ function Cart(props) {
                                 className="btn-remove"
                                 onClick={() => {
                                   props.removeFromCart(item);
-
-                                  const cl = cartList.filter(
+                               const cl = cartList.filter(
                                     (it) => it != item
                                   );
                                   if (selectedStore && selectedAddress) {
@@ -368,9 +349,7 @@ function Cart(props) {
                                 )}
                               </td>
                             </tr>
-
-                           
-                            <tr className="summary-shipping-estimate">
+ <tr className="summary-shipping-estimate">
                               <td>
                                 Shipping Address :
                                 <br />
@@ -386,16 +365,19 @@ function Cart(props) {
                                     to manage shipping address.
                                   </>
                                 )}
-                                {user &&  (
+                                {user&&selectedAddress&& (
                                   <>
                                     <p>
-                                      {user.house_number}{" "}
-                                      {user.street_address}{" "}
-                                      {user.city}{" "}
+                                      {selectedAddress.house_number}{" "}
+                                      {selectedAddress.street_address}{" "}
+                                      {selectedAddress.city}{" "}
                                      
-                                      {user.pincode}
+                                      {selectedAddress.pincode}
                                     </p>
-                                    <a
+                                   
+                                  </>
+                                )}
+ <a
                                       style={{
                                         color: "#a6c76c",
                                         cursor: "pointer",
@@ -407,41 +389,7 @@ function Cart(props) {
                                       change address{" "}
                                       <i className="icon-long-arrow-right"></i>
                                     </a>
-                                  </>
-                                )}
-
-                                {
-                                  user&&selectedAddress&&
-                                  ( 
-                                  <Row>
-                                    <div className="col-lg-6">
-                                  <div className="card card-dashboard">
-                                    <div
-                                      className="card-body"
-                                    
-                                    >
-                                      <h5>Address </h5>
-                                      <p>
-                                        <strong> Apartment / House No.:</strong>{" "}
-                                        {selectedAddress.house_number}
-                                        <br />
-                                        <strong>Street Address:</strong>{" "}
-                                        {selectedAddress.street_address}
-                                        <br />
-                                        <strong>City: </strong>
-                                        {selectedAddress.city}
-                                        <br />
-                                       
-                                        <strong>Pincode: </strong>
-                                        {selectedAddress.pincode}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                  </Row>
-                                  
-                                  )
-                                }
+                               
                                 {user && !selectedAddress && (
                                   <>
                                     <p>No addresses found.</p>
@@ -457,11 +405,7 @@ function Cart(props) {
                               </td>
                               <td>&nbsp;</td>
                             </tr>
-                        
-
-                           
-
-                            {user && (
+                         {user && (
                               <tr className="summary-total">
                                 <td>Total:</td>
                                 <td>
@@ -475,8 +419,7 @@ function Cart(props) {
                             )}
                           </tbody>
                         </table>
-                 
-                        {selectedAddress ?  (
+                 {selectedAddress ?  (
                           <Button
                             className="btn btn-outline-primary-2 btn-order btn-block"
                             onClick={handleProceedToCheckout}
@@ -489,7 +432,6 @@ function Cart(props) {
                       >
                         <span>Select the Shipping Address</span>
                       </ALink>}
-                      
                       </>
                     )}
                   </div>

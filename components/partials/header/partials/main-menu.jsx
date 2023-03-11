@@ -29,7 +29,7 @@ function MainMenu() {
           className={`megamenu-container ${path === "/" ? "" : ""}`}
           id="menu-home"
         >
-          <ALink href="/shop/sidebar/3cols?page=1&new=true" className="sf">
+          <ALink href="/shop/sidebar/3cols?page=1&new=true" className="sf" style={{color:"#bc4a3a"}}>
             New Arrivals
           </ALink>
         </li>

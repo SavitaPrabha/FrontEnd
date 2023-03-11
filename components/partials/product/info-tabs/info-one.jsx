@@ -96,7 +96,7 @@ function InfoOne(props) {
       <div className="product-details-tab">
         <TabList className="nav nav-pills justify-content-center">
           <Tab className="nav-item">
-            <span className="nav-link"> Descriptions</span>
+            <span className="nav-link">Descriptions</span>
           </Tab>
 
           <Tab className="nav-item">

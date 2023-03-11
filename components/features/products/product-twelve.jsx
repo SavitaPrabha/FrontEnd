@@ -223,7 +223,7 @@ function ProductTwelve(props) {
         </h3>
         <div className="product-price mt-1" style={{ display: "inline" }}>
            
-              <b className="discount-value " style={{ color: "#00bd10" }}>
+              <b className="discount-value " style={{ color: "#1e1623" }}>
               ${product.price.toFixed(2)}
               </b>
             </div>

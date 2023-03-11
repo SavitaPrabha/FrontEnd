@@ -394,7 +394,7 @@ function DetailOne(props) {
       </div>
       <div className="product-price mt-1" style={{ display: "inline" }}>
            
-           <b className="discount-value " style={{ color: "#00bd10" }}>
+           <b className="discount-value " style={{ color: "#ac1530" }}>
            {product.price.toFixed(2)}
            </b>
          </div>
@@ -476,7 +476,8 @@ function DetailOne(props) {
             <a
               href="#"
               className="btn-product btn-wishlist"
-              onClick={onWishlistClick}
+                onClick={onWishlistClick}
+                style={{color:"#ac1530"}}
             >
               <span>Add to Wishlist</span>
             </a>

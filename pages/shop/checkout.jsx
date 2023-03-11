@@ -17,12 +17,13 @@ function Checkout(props) {
 {console.log(cartlist),"cartlist"}
   const [orderProcessing, setOrderProcessing] = useState(false);
   const [cartTotal, setCartTotal] = useState();
-  const [discountValue, setdiscountValue] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     console.log(props);
     setCartTotal(localStorage.getItem("cartTotal") || "");
-    setdiscountValue(localStorage.getItem("discountvalue") || "");
+    setUser(localStorage.getItem("user") || "");
+
   }, []);
 console.log(cartlist,"kjhk")
   function clearOpacity() {
@@ -48,6 +49,7 @@ console.log(cartlist,"kjhk")
     const response = await postSubmitForm(url, {
       cartlist: cartlist,
       cartTotal: cartTotal,
+      customer_details:user
     });
     console.log(response);
 
@@ -237,10 +239,10 @@ console.log(cartlist,"kjhk")
                       )}
 
                       <tr>
-                        <td>GST(13%):</td>
+                        <td>GST(18%):</td>
                         <td>
                           $
-                          {String(cartlist[0].gst  || "").toLocaleString(undefined, {
+                          {String(cartlist[0]&&cartlist[0].gst|| "").toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                           })}
