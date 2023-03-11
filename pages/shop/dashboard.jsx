@@ -38,7 +38,7 @@ import moment from "moment";
 function DashBoard() {
   const [user, setUser] = useState(null);
   const [addressModal, setAddressModal] = useState();
-  const [orders, setOrders] = useState([]);
+  const [orders,setOrders] = useState([]);
 
   const [helpModal, sethelpModal] = useState();
 
@@ -64,21 +64,24 @@ function DashBoard() {
   const [productsDetails, setproductsDetails] = useState();
   const [selectedProduct, setSelectedProduct] = useState();
   const getOrders = async (e, v) => {
-    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/orders/for_customer_web";
-    const response = await postSubmitForm(url, null);
+    let obj={
+      customer_mobile:user && user.mobile
+    }
+    let url = process.env.NEXT_PUBLIC_SERVER_URL + "/orders/get_by_customer";
+    const response = await postSubmitForm(url,obj);
     if (response && response.status === 1) {
-      console.log(response);
+      console.log(response.data,"savita");
       setOrders(response.data);
-      if (response.data && response.data.length) {
-        setCustomerId(response.data[0]?.customer_details || "");
-        let data = [];
-        if (response.data && response.data.product_details)
-          data.push(response.data && response.data.product_details);
-        setproductsDetails(data);
-      }
+      // if (response.data && response.data.length) {
+      //   setCustomerId(response.data[0]?.customer_details || "");
+      //   let data = [];
+      //   if (response.data && response.data.product_details)
+      //     data.push(response.data && response.data.product_details);
+      //   setproductsDetails(data);
+      // }
     }
   };
-  console.log(productsDetails, "Ashish");
+  console.log(productsDetails, "savita");
   const [complaint, setComplaint] = useState();
   const getComplaint = async (e, v) => {
     let obj={
@@ -177,28 +180,28 @@ function DashBoard() {
 
     //   text: "Subtotal",
     // },
-    {
-      dataField: "shipping_charges",
-      formatter: (cell, row) => "$ " + row.shipping_charges,
-      text: "Shipping",
-    },
-    {
-      dataField: "total_amount",
-      formatter: (cell, row) => "$ " + row.total_amount,
-      text: "Total",
-    },
+    // {
+    //   dataField: "shipping_charges",
+    //   formatter: (cell, row) => "$ " + row.shipping_charges,
+    //   text: "Shipping",
+    // },
+    // {
+    //   dataField: "total_amount",
+    //   formatter: (cell, row) => "$ " + row.total_amount,
+    //   text: "Total",
+    // },
 
-    {
-      dataField: "status",
-      text: "Status",
-    },
-    {
-      dataField: "createdAt",
-      formatter: (cell, row) =>
-        moment(row.createdAt).format("YYYY-MM-DD HH:mm"),
+    // {
+    //   dataField: "status",
+    //   text: "Status",
+    // },
+    // {
+    //   dataField: "createdAt",
+    //   formatter: (cell, row) =>
+    //     moment(row.createdAt).format("YYYY-MM-DD HH:mm"),
 
-      text: "Date",
-    },
+    //   text: "Date",
+    // },
     {
       text: "Action",
       formatter: (cell, row) => {
@@ -588,7 +591,7 @@ function DashBoard() {
                                           bootstrap4
                                           keyField="_id"
                                           key="_id"
-                                          data={orders}
+                                          data={orders && orders}
                                           columns={columns}
                                           expandRow={expandRow}
                                           noDataIndication="No data to display."
