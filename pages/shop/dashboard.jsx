@@ -72,13 +72,13 @@ function DashBoard() {
     if (response && response.status === 1) {
       console.log(response.data,"savita");
       setOrders(response.data);
-      // if (response.data && response.data.length) {
-      //   setCustomerId(response.data[0]?.customer_details || "");
-      //   let data = [];
-      //   if (response.data && response.data.product_details)
-      //     data.push(response.data && response.data.product_details);
-      //   setproductsDetails(data);
-      // }
+      if (response.data && response.data.length) {
+        setCustomerId(response.data[0]?.customer_details || "");
+        let data = [];
+        if (response.data && response.data.product_details)
+          data.push(response.data && response.data.product_details);
+        setproductsDetails(data);
+      }
     }
   };
   console.log(productsDetails, "savita");
@@ -174,34 +174,30 @@ function DashBoard() {
       text: "Order",
     },
 
-    // {
-    //   dataField: "subtotal_amount",
-    //   formatter: (cell, row) => "$ " + row.subtotal_amount,
+    {
+      dataField: "gst",
+      formatter: (cell, row) => "$ " + row.gst,
 
-    //   text: "Subtotal",
-    // },
-    // {
-    //   dataField: "shipping_charges",
-    //   formatter: (cell, row) => "$ " + row.shipping_charges,
-    //   text: "Shipping",
-    // },
-    // {
-    //   dataField: "total_amount",
-    //   formatter: (cell, row) => "$ " + row.total_amount,
-    //   text: "Total",
-    // },
+      text: "GST",
+    },
+   
+    {
+      dataField: "total_amount",
+      formatter: (cell, row) => "$ " + row.total_amount,
+      text: "Total",
+    },
 
-    // {
-    //   dataField: "status",
-    //   text: "Status",
-    // },
-    // {
-    //   dataField: "createdAt",
-    //   formatter: (cell, row) =>
-    //     moment(row.createdAt).format("YYYY-MM-DD HH:mm"),
+    {
+      dataField: "status",
+      text: "Status",
+    },
+    {
+      dataField: "createdAt",
+      formatter: (cell, row) =>
+        moment(row.createdAt).format("YYYY-MM-DD HH:mm"),
 
-    //   text: "Date",
-    // },
+      text: "Date",
+    },
     {
       text: "Action",
       formatter: (cell, row) => {
@@ -259,15 +255,20 @@ function DashBoard() {
     //     text: "Color",
     //   },
     {
+      dataField: "brand",
+
+      text: "Brand Name",
+    },
+    {
       dataField: "price",
 
       text: "Price",
     },
-    {
-      dataField: "assembly_charges",
+    // {
+    //   dataField: "assembly_charges",
 
-      text: "Assembly Charges",
-    },
+    //   text: "Assembly Charges",
+    // },
 
     {
       formatter: (cell, row) => {

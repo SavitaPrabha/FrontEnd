@@ -21,10 +21,10 @@ export default class MyDocument extends Document {
             type="text/css"
             href="vendor/line-awesome/css/line-awesome.min.css"
           />
-          <script
+          {/* <script
             src="//code-eu1.jivosite.com/widget/ZHeiil9Gqr"
             async
-          ></script>
+          ></script> */}
         </Head>
         <body>
           <Main />
