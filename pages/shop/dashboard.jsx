@@ -71,7 +71,9 @@ function DashBoard() {
     const response = await postSubmitForm(url,obj);
     if (response && response.status === 1) {
       console.log(response.data,"savita");
-      setOrders(response.data);
+      let data=[];
+      data.push(response.data);
+       setOrders(data);
       if (response.data && response.data.length) {
         setCustomerId(response.data[0]?.customer_details || "");
         let data = [];
@@ -593,7 +595,7 @@ function DashBoard() {
                                           keyField="_id"
                                           key="_id"
                                           data={orders && orders}
-                                          columns={columns}
+                                          columns={columns && columns}
                                           expandRow={expandRow}
                                           noDataIndication="No data to display."
                                           rowStyle={rowStyle}
