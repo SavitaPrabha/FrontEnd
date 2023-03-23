@@ -49,7 +49,7 @@ console.log(cartlist,"kjhk")
     const response = await postSubmitForm(url, {
       cartlist: cartlist,
       cartTotal: cartTotal,
-      customer_details:user
+       customer_details:user
     });
     console.log(response);
 
@@ -70,7 +70,8 @@ console.log(cartlist,"kjhk")
     //   toast.error("Something went wrong.");
     // }
   };
-
+  
+console.log(user,"hjghjg");
   return (
     <div className="main">
       <PageHeader title="Checkout" subTitle="Shop" />

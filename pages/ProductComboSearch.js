@@ -275,7 +275,7 @@ function ProductComboSearch(props) {
 
                     {/* <div className="product-price mt-1">${product.combo_price?.toFixed(2)}</div> */}
 
-                    <div style={{ display: "inline", color: "#a6c76c" }} className="product-price">${product.combo_price.toFixed(2)}
+                    <div style={{ display: "inline", color: "#c4b7a6" }} className="product-price">${product.combo_price.toFixed(2)}
 
                          &nbsp;   <span style={{ textDecoration: "line-through", color: "gray" }}>${product.total.toFixed(2)}</span>
 

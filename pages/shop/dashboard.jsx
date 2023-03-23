@@ -171,10 +171,7 @@ function DashBoard() {
         return { width: "3%" };
       },
     },
-    {
-      dataField: "order_number",
-      text: "Order",
-    },
+  
 
     {
       dataField: "gst",

@@ -9,7 +9,7 @@ import OwlCarousel from "~/components/features/owl-carousel";
 import SpecialCollection from "~/components/partials/home/special-collection";
 import TopCollection from "~/components/partials/home/top-collection";
 import BlogCollection from "~/components/partials/home/blog-collection";
-import NewsletterModal from "~/components/features/modals/newsletter-modal";
+// import NewsletterModal from "~/components/features/modals/newsletter-modal";
 import { rendererThree } from "~/components/features/count-down";
 
 import withApollo from "~/server/apollo";
@@ -151,7 +151,7 @@ function Home() {
         </OwlCarousel>
      
       </div>
-      <NewsletterModal />
+      {/* <NewsletterModal /> */}
       {/* <OwlCarousel
         adClass="brands-border owl-simple brand-carousel cols-xl-7 cols-lg-5 cols-md-4 cols-sm-3 cols-2"
         options={brandSlider}

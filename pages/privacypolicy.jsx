@@ -273,7 +273,7 @@ function FAQ() {
             181 Kennedy Rd Unit-3, Scarborough, ON M1P 2L2 <br />
             Attention: Chief Privacy Officer <br />
             Phone: 647-344-5455/ 647-344-8355
-            <br /> Email: info@grvfurniture.ca
+            <br /> Email: prabhasavita50@gmail.com
             <br />
             <br />
           </p>

@@ -325,7 +325,7 @@ function Cart(props) {
                       <center>
                         <Loader
                           type="Puff"
-                          color="#a6c76c"
+                          color="#c4b7a6"
                           secondaryColor="Grey"
                           height={100}
                           width={100}
@@ -340,13 +340,10 @@ function Cart(props) {
                               <td>Subtotal:</td>
                               <td>
                                 $
-                                {cartPriceTotal(props.cartItems).toLocaleString(
-                                  undefined,
-                                  {
+                                {cartTotal.toLocaleString(undefined, {
                                     minimumFractionDigits: 2,
                                     maximumFractionDigits: 2,
-                                  }
-                                )}
+                                  })}
                               </td>
                             </tr>
  <tr className="summary-shipping-estimate">
@@ -358,7 +355,7 @@ function Cart(props) {
                                     Please{" "}
                                     <ALink
                                       href="/login"
-                                      style={{ color: "#a6c76c" }}
+                                      style={{ color: "#c4b7a6" }}
                                     >
                                       <span>Sign In / Register</span>
                                     </ALink>{" "}
@@ -379,7 +376,7 @@ function Cart(props) {
                                 )}
  <a
                                       style={{
-                                        color: "#a6c76c",
+                                        color: "#c4b7a6",
                                         cursor: "pointer",
                                       }}
                                       onClick={() => {
@@ -395,7 +392,7 @@ function Cart(props) {
                                     <p>No addresses found.</p>
                                     <a
                                       href="/shop/dashboard"
-                                      style={{ color: "#a6c76c" }}
+                                      style={{ color: "#c4b7a6" }}
                                     >
                                       go to account{" "}
                                       <i className="icon-long-arrow-right"></i>

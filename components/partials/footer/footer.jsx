@@ -36,6 +36,7 @@ function Footer() {
             <div className="col-sm-12 col-lg-6">
               <div className="widget widget-about">
                 <div className="row">
+
                   <div className="col-sm-12 col-lg-12">
                     <img
                       src="images/logo.png"
@@ -50,7 +51,7 @@ function Footer() {
                         marginTop: "-20px",
                       }}
                     >
-                      Bongs &amp; Hukka
+                      
                     </p>
                     <br />
                     <p>
@@ -78,12 +79,12 @@ function Footer() {
                         Unit-3, 1181 Kennedy Road, Scarborough, ON, M1P 2L2{" "}
                         <br />
                         Contact
-                        <ALink href="tel:647-344-5455"> : 647-344-5455</ALink>
+                        <ALink href="tel:7054912712"> : 7054912712</ALink>
                         <br />
                         Email :{" "}
-                        <ALink href="mailto:info@grvfurniture.ca">
+                        <ALink href="mailto:prabhasavita50@gmail.com">
                           {" "}
-                          info@grvfurniture.ca
+                          prabhasavita50@gmail.com
                         </ALink>
                       </span>
                     </div>
@@ -98,9 +99,9 @@ function Footer() {
                         Contact<a href="tel:416-901-7008"> : 416-901-7008</a>
                         <br />
                         Email :{" "}
-                        <a href="mailto:myamfurniture@gmail.com">
+                        <a href="mailto:prabhasavita50@gmail.com">
                           {" "}
-                          myamfurniture@gmail.com
+                          prabhasavita50@gmail.com
                         </a>
                       </span>
                     </div>
@@ -122,7 +123,7 @@ function Footer() {
 
             <div className="col-sm-4 col-lg-2">
               <div className="widget">
-                <h4 className="widget-title">GRV App on mobile</h4>
+                <h4 className="widget-title">App on mobile</h4>
                 <br />
                 <a
                   // href="https://play.google.com/store/apps/details?id=io.grv_mobile"
@@ -149,13 +150,13 @@ function Footer() {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-2">
+            <div className="col-sm-2 col-lg-2">
               <div className="widget">
-                <h4 className="widget-title">Useful Links</h4>
+                <h4 className="widget-title">Customer Policies</h4>
 
                 <ul className="widget-list">
                   <li>
-                    <ALink href="/about">About GRV</ALink>
+                    <ALink href="/about">About Us</ALink>
                   </li>
 
                   <li>
@@ -176,7 +177,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-2">
+            <div className="col-sm-2 col-lg-2">
               <div className="widget">
                 <h4 className="widget-title">My Account</h4>
 
