@@ -83,7 +83,7 @@ function Contact() {
       <div className="container">
         <div
           className="page-header page-header-big text-center"
-          style={{ backgroundImage: `url(images/contact-header-bg.jpg)` }}
+          style={{ backgroundImage: `url(https://as2.ftcdn.net/v2/jpg/03/18/92/57/1000_F_318925721_Lk0xALnTK2c2tq9mcYlZFTO2rovKFxiQ.jpg)` }}
         >
           <h1 className="page-title text-white">
             Contact us<span className="text-white">keep in touch with us</span>
@@ -104,16 +104,16 @@ function Contact() {
                       <div className="col-sm-6 col-xl-6">
                         <div className="store-content">
                           <h3 className="store-title">
-                          Unit-3, 1181 Kennedy Road, Scarborough, ON, M1P 2L2
+                        Agra
                           </h3>
                           <div>
                             Contact :{" "}
-                            <a href="tel:647344 5455">647-344-5455</a>
+                            <a href="tel:647344 5455">1234567890</a>
                           </div>
                           <div>
                             Email :{" "}
-                            <a href="mailto:info@grvfurniture.ca">
-                            info@grvfurniture.ca
+                            <a href="mailto:prabhasavita50@gmail.com">
+                            prabhasavita50@gmail.com
                             </a>
                           </div>
                         </div>
@@ -130,7 +130,7 @@ function Contact() {
                 </div>
 
 
-                <div className="col-lg-12">
+                {/* <div className="col-lg-12">
                   <div className="store">
                     <div className="row align-items-center">
                       <div className="col-sm-6 col-xl-6">
@@ -161,7 +161,7 @@ function Contact() {
                   </div>
 
                   <div style={{border: '1px solid red', textAlign: 'center', width: '141px', padding: '5px 5px 5px 5px', color: '#c4b7a6', fontSize: '16px', fontWeight: 400}}><svg aria-hidden="true" focusable="false" role="presentation" className="icon icon-pin" viewBox="0 0 32 32" style={{width: '20px', height: 'auto'}}><path d="M4 12a12 12 0 0 1 24 0c0 8-12 20-12 20S4 20 4 12m7 0a5 5 0 0 0 10 0 5 5 0 0 0-10 0z" /></svg>&nbsp;<a href="https://www.google.com/maps?daddr=1181+Kennedy+Road,Unit-3" target="_blank">Get directions</a></div>
-                </div>
+                </div> */}
 
 
 
@@ -283,7 +283,7 @@ function Contact() {
           </div>
         </div>
 
-        <div id="map" className="w-100">
+        {/* <div id="map" className="w-100">
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyD-k9s5Swvos3u9Ovo2YXJjAwM7fBw3yjY",
@@ -303,7 +303,7 @@ function Contact() {
               text="New Alla Moda"
             />
           </GoogleMapReact>
-        </div>
+        </div> */}
       </div>
     </div>
   );

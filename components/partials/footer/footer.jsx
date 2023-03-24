@@ -30,9 +30,10 @@ function Footer() {
 
   return (
     <footer className="footer footer-2">
-      <div className="footer-middle">
+      <div className="footer-middle" style={{backgroundColor:"black",color:"white"
+        }}>
         <div className={containerClass}>
-          <div className="row">
+          <div className="row" >
             <div className="col-sm-12 col-lg-6">
               <div className="widget widget-about">
                 <div className="row">
@@ -47,16 +48,16 @@ function Footer() {
                     <p
                       style={{
                         color: "rgb(171, 69, 10)",
-                        /* textAlign: 'center', */ fontSize: "15px",
+                     fontSize: "15px",
                         marginTop: "-20px",
                       }}
                     >
                       
                     </p>
                     <br />
-                    <p>
+                    {/* <p>
                       <span
-                        className="widget-title"
+                        className=""
                         style={{ color: "#4b1d02" }}
                       >
                         Your comfort is our concern.
@@ -65,21 +66,21 @@ function Footer() {
                       This isn’t just a statement for us at GRV. This is how we
                       make our daily & long-term choices – whether it’s the
                       product quality or customer service you experience.{" "}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
 
-                <div className="widget-about-info">
+                <div className="">
                   <div className="row">
                     <div className="col-sm-7 col-md-7">
-                      <span className="widget-title">
+                      <span className="">
                         Got Question? Call us 24/7
                       </span>
-                      <span className="widget-about-title">
-                        Unit-3, 1181 Kennedy Road, Scarborough, ON, M1P 2L2{" "}
+                      <span className="">
+                        Agra
                         <br />
                         Contact
-                        <ALink href="tel:7054912712"> : 7054912712</ALink>
+                        <ALink href="tel:1234567890"> : 1234567890</ALink>
                         <br />
                         Email :{" "}
                         <ALink href="mailto:prabhasavita50@gmail.com">
@@ -91,12 +92,12 @@ function Footer() {
 
                     <div className="col-sm-7 col-md-7">
                       <span
-                        className="widget-about-title"
+                        className=""
                         style={{ marginTop: "10px" }}
                       >
-                        Unit-1, 1125 Kennedy Road, Scarborough, ON, M1P 2L2{" "}
+                        Agra
                         <br />
-                        Contact<a href="tel:416-901-7008"> : 416-901-7008</a>
+                        Contact<a href="tel:416-901-7008"> : 1234567890</a>
                         <br />
                         Email :{" "}
                         <a href="mailto:prabhasavita50@gmail.com">
@@ -106,7 +107,7 @@ function Footer() {
                       </span>
                     </div>
                     <div className="col-sm-5 col-md-5">
-                      <span className="widget-title">Payment Methods</span>
+                      <span className="">Payment Methods</span>
                       <figure className="footer-payments">
                         <img
                           src="images/payments.png"
@@ -121,9 +122,9 @@ function Footer() {
               </div>
             </div>
 
-            <div className="col-sm-4 col-lg-2">
-              <div className="widget">
-                <h4 className="widget-title">App on mobile</h4>
+            <div className="col-sm-4 col-lg-2" >
+              <div >
+                <h5 style={{color:"white"}} >App on mobile</h5>
                 <br />
                 <a
                   // href="https://play.google.com/store/apps/details?id=io.grv_mobile"
@@ -152,34 +153,34 @@ function Footer() {
 
             <div className="col-sm-2 col-lg-2">
               <div className="widget">
-                <h4 className="widget-title">Customer Policies</h4>
+                <h5 style={{color:"white"}}>Customer Policies</h5>
 
                 <ul className="widget-list">
                   <li>
                     <ALink href="/about">About Us</ALink>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <ALink href="/faq">FAQ</ALink>
-                  </li>
+                  </li> */}
                   <li>
                     <ALink href="/contact">Contact us</ALink>
                   </li>
-                  <li>
+                  {/* <li>
                     <ALink href="/termsandconditions">
                       Terms and conditions
                     </ALink>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <ALink href="/privacypolicy">Privacy Policy</ALink>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
 
             <div className="col-sm-2 col-lg-2">
               <div className="widget">
-                <h4 className="widget-title">My Account</h4>
+                <h5 style={{color:"white"}}>My Account</h5>
 
                 <ul className="widget-list">
                   <li>
@@ -208,7 +209,7 @@ function Footer() {
         <div className={containerClass}>
       
           <p className="footer-copyright" style={{color:"#ffffff"}} >
-            Copyright © {new Date().getFullYear()} s – Hukkha and Bongs.
+            Copyright © {new Date().getFullYear()} s – Savita
             All Rights Reserved.
           </p>
 

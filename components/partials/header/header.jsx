@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <header className="header header-2 header-intro-clearance">
-      <div className="header-top">
+      <div className="header-top" style={{backgroundColor:"#002e30", color:"white"}}>
         <div className={containerClass}>
           <div className="header-left overflow-hidden mr-3 mr-sm-0">
             <div className="welcome-msg d-flex flex-nowrap">

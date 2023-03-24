@@ -23,7 +23,7 @@ function About() {
       <div className="container">
         <div
           className="page-header page-header-big text-center"
-          style={{ backgroundImage: `url(images/about-header-bg.jpg)` }}
+          style={{ backgroundImage: `url(https://as1.ftcdn.net/v2/jpg/04/28/77/22/1000_F_428772239_20fuXf2zil4e9mnvbWhO9EtHTlrK3Ojv.jpg)` }}
         >
           <h1 className="page-title text-white">
             About us<span className="text-white">Who we are</span>
@@ -38,23 +38,17 @@ function About() {
               <div className="col-lg-5 mb-3 mb-lg-0">
                 <h2 className="title">Who We Are</h2>
                 <p className="lead text-primary mb-3">
-                  This isn’t just a statement for us at GRV. This is how we make
-                  our daily & long-term choices – whether it’s the product
-                  quality or customer service you experience.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, autem placeat. Rerum porro aliquid officiis modi at consequuntur quae autem fugiat veritatis fuga ipsa repellat quod minus quos obcaecati tempora, molestiae, sunt consequatur harum, velit provident cum tenetur deleniti eum!
                 </p>
                 <p className="mb-2">
-                  Buying furniture is a high involvement decision. Understanding
-                  your needs is our priority - your style, your space & your
-                  preferences. Accordingly, our trusted home experts & 50+
-                  vendors offer the best quality furniture at minimum prices
-                  customized to your needs.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repellendus sunt distinctio amet quas quam nam libero soluta vel, alias modi error, quia dolorem nisi aspernatur cumque! Qui, fugiat ullam.
                 </p>
               </div>
 
               <div className="col-lg-6 offset-lg-1">
                 <div className="about-images">
                   <img
-                    src="images/about/img-1.jpg"
+                    src="https://as2.ftcdn.net/v2/jpg/03/43/76/65/1000_F_343766534_YUj6yuLc3gdRqeYxKg0FSPcedsDkcKm0.jpg"
                     alt=""
                     className="about-img-front"
                   />

@@ -69,7 +69,7 @@ function ShopListOne(props) {
         </>
       )}
 
-      <hr/>
+      {/* <hr/>
       {combos.length == 0 && !loading ? (
                     <p className="no-results">No combos matching your selection.</p>
                ) : (
@@ -104,7 +104,7 @@ function ShopListOne(props) {
                               </div>
                          )}
                     </>
-               )}
+               )} */}
      
 
 

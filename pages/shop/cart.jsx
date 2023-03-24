@@ -198,7 +198,7 @@ function Cart(props) {
 
                         <th>Price</th>
                        
-                        <th>Quantity</th>
+                        {/* <th>Quantity</th> */}
                         <th>Total</th>
                         <th></th>
                       </tr>
@@ -244,22 +244,27 @@ function Cart(props) {
                             </td>
                           
 
-                            <td className="quantity-col">
+                            {/* <td className="quantity-col">
                               <Qty
                                 value={item.qty}
-                                changeQty={(current) =>
-                                  changeQty(current, index)
+                                
+                                changeQty={(current) =>{
+                                 changeQty(current, index)
                                 }
-                                adClass="cart-product-quantity" 
+                               }
+                               adClass="cart-product-quantity" 
+                                
                               ></Qty>
-                            </td>
+                            </td> */}
 
                             <td className="total-col" >
                               $
                               {item.sum?.toLocaleString(undefined, {
                                 minimumFractionDigits: 2,
                                 maximumFractionDigits: 2,
+                                
                               })}
+                             
                             </td>
 
                             <td className="remove-col">

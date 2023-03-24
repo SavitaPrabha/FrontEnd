@@ -120,7 +120,7 @@ function Home() {
                 >
                  
                     <img
-                      src={"images/banners/banner-1.jpg"}
+                      src={"https://images.unsplash.com/photo-1477276266798-898214c677da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80"}
                       className="position-absolute"
                       alt="slide"
                     />

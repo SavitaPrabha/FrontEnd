@@ -30,7 +30,7 @@ function MainMenu() {
           id="menu-home"
         >
           <ALink href="/shop/sidebar/3cols?page=1&new=true" className="sf" style={{color:"#bc4a3a"}}>
-            New Arrivals
+            New Products
           </ALink>
         </li>
         <li
@@ -60,7 +60,7 @@ function MainMenu() {
           )}
         </li>
 
-        <li className={path.indexOf("element") > -1 ? "active" : ""}>
+        {/* <li className={path.indexOf("element") > -1 ? "active" : ""}>
           <ALink href="/" className="sf-with-ul">
             Top Categories
           </ALink>
@@ -94,7 +94,7 @@ function MainMenu() {
           <ALink href="/shop/combo?type=3cols" className="sf">
             Combos
           </ALink>
-        </li>
+        </li> */}
 
         {/* <li className={path.indexOf("/shop") > -1 ? "active" : ""}>
           <ALink
