@@ -65,6 +65,8 @@ function Header() {
                 src="images/logo.png"
                 alt="Logo"
               />
+
+               <h6> &nbsp;&nbsp; Glam Garb</h6>
               <p style={{color: 'rgb(171, 69, 10)', textAlign: 'center', fontSize: '15px'}}></p>
             </ALink>
            

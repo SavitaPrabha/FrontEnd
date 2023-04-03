@@ -70,12 +70,12 @@ function DashBoard() {
     let url = process.env.NEXT_PUBLIC_SERVER_URL + "/orders/get_by_customer";
     const response = await postSubmitForm(url,obj);
     if (response && response.status === 1) {
-      console.log(response.data,"savita");
+      console.log(response.data,"mera sardard");
       let data=[];
       data.push(response.data);
        setOrders(data);
       if (response.data && response.data.length) {
-        setCustomerId(response.data[0]?.customer_details || "");
+        setCustomerId(response.data?.customer_details || "");
         let data = [];
         if (response.data && response.data.product_details)
           data.push(response.data && response.data.product_details);
@@ -87,10 +87,10 @@ function DashBoard() {
   const [complaint, setComplaint] = useState();
   const getComplaint = async (e, v) => {
     let obj={
-      customer_id:"63ca5adf7d0699749308ea91"
+      mobile:user&&user.mobile
     }
     let url =
-      process.env.NEXT_PUBLIC_SERVER_URL + "/complaint/get_by_customer_id";
+      process.env.NEXT_PUBLIC_SERVER_URL + "/complaint/get_by_customer";
     const response = await postSubmitForm(url, obj)
        
     if (response && response.status === 1) {
@@ -98,30 +98,11 @@ function DashBoard() {
       setComplaint(response.data);
     }
   };
-  // const [coupon, setCoupon] = useState();
-  // const loadCoupons = async (e, v) => {
-  //   let url =  "https://api-grv.onebigbit.com/coupons/global_coupons";
-  //   const response = await postSubmitForm(url,"" )
-  //   if (response && response.status === 1) {
-  //     console.log(response,"coupons");
-  //     setCoupon(response.data);
-  //   }
-  // }
-  // const [specificCoupon, setSpecificCoupon] = useState();
-  // const loadSpecificCoupon = async (e, v) => {
-  //   let url =  "https://api-grv.onebigbit.com/coupons/customer_specific_coupons";
-  //   const response = await postSubmitForm(url,"" )
-  //   if (response && response.status === 1) {
-  //     console.log(response,"Specific coupons");
-  //     setSpecificCoupon(response.data);
-  //   }
-  // }
-
   const handleValidSubmit = async (e, v) => {
     let data_to_send = {
       message: v.message,
       product_id: selectedProduct._id,
-      customer_id: customerId._id,
+      mobile: user.mobile,
     };
     console.log(data_to_send);
     let url = process.env.NEXT_PUBLIC_SERVER_URL + "/complaint/insert";

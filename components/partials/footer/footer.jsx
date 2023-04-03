@@ -40,7 +40,7 @@ function Footer() {
 
                   <div className="col-sm-12 col-lg-12">
                     <img
-                      src="images/logo.png"
+                      src="images/logo-footer.png"
                       className="footer-logo"
                       alt="Footer Logo"
                       style={{ marginLeft: "30px" }}
