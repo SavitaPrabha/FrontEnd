@@ -320,7 +320,7 @@ function Login() {
                                       <Label
                                         className="forgot-link"
                                         style={{
-                                          color: "#c4b7a6",
+                                          color: "#000000",
                                         }}
                                       >
                                         Resend OTP in{" "}
@@ -339,7 +339,7 @@ function Login() {
                                         className="forgot-link"
                                         style={{
                                           cursor: "pointer",
-                                          color: "#c4b7a6",
+                                          color: "#000000",
                                         }}
                                         onClick={handleResendLoginOTP}
                                       >
@@ -384,7 +384,7 @@ function Login() {
                                       className="forgot-link"
                                       style={{
                                         cursor: "pointer",
-                                        color: "#c4b7a6",
+                                        color: "#000000",
                                       }}
                                       onClick={handleForgotPassword}
                                     >
@@ -528,7 +528,7 @@ function Login() {
                                       <Label
                                         className="forgot-link"
                                         style={{
-                                          color: "#c4b7a6",
+                                          color: "#000000",
                                         }}
                                       >
                                         Resend OTP in{" "}
@@ -547,7 +547,7 @@ function Login() {
                                         className="forgot-link"
                                         style={{
                                           cursor: "pointer",
-                                          color: "#c4b7a6",
+                                          color: "#000000",
                                         }}
                                         onClick={handleResendRegisterOTP}
                                       >
