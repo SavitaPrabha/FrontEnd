@@ -160,7 +160,7 @@ function Contact() {
                     </div>
                   </div>
 
-                  <div style={{border: '1px solid red', textAlign: 'center', width: '141px', padding: '5px 5px 5px 5px', color: '#c4b7a6', fontSize: '16px', fontWeight: 400}}><svg aria-hidden="true" focusable="false" role="presentation" className="icon icon-pin" viewBox="0 0 32 32" style={{width: '20px', height: 'auto'}}><path d="M4 12a12 12 0 0 1 24 0c0 8-12 20-12 20S4 20 4 12m7 0a5 5 0 0 0 10 0 5 5 0 0 0-10 0z" /></svg>&nbsp;<a href="https://www.google.com/maps?daddr=1181+Kennedy+Road,Unit-3" target="_blank">Get directions</a></div>
+                  <div style={{border: '1px solid red', textAlign: 'center', width: '141px', padding: '5px 5px 5px 5px', color: '#000000', fontSize: '16px', fontWeight: 400}}><svg aria-hidden="true" focusable="false" role="presentation" className="icon icon-pin" viewBox="0 0 32 32" style={{width: '20px', height: 'auto'}}><path d="M4 12a12 12 0 0 1 24 0c0 8-12 20-12 20S4 20 4 12m7 0a5 5 0 0 0 10 0 5 5 0 0 0-10 0z" /></svg>&nbsp;<a href="https://www.google.com/maps?daddr=1181+Kennedy+Road,Unit-3" target="_blank">Get directions</a></div>
                 </div> */}
 
 

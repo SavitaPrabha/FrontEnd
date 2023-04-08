@@ -48,7 +48,7 @@ const App = ({ Component, pageProps, store }) => {
             content="images/icons/browserconfig.xml"
           />
           <meta name="theme-color" content="#ffffff" />
-          <title>ECom</title>
+          <title>Glam Garb</title>
           <link
             rel="apple-touch-icon"
             sizes="180x180"

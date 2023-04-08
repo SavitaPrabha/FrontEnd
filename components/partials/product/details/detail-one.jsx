@@ -52,20 +52,25 @@ function DetailOne(props) {
   // }
   const PRODUCT_KEYS = [
     "category",
-    "sub_category",
-    // "color",
-    "weight",
+    "brand",
+    "color"
+   // "sub_category",
+    ////// "color",
+   // "weight",
     // "dimensions",
-    "assembly_charges",
+   // "assembly_charges",
   ];
   const PRODUCT_TITLE = {
     category: "Category",
-    sub_category: "Sub Category",
-    // color: "Color",
-    weight: "Weight",
-    // dimensions: "Dimensions",
-    assembly_charges: "Assembly Charges",
+    brand:"Brand",
+    color:"Color"
+   // sub_category: "Sub Category",
+  // color: "Color",
+  // weight: "Weight",
+ // dimensions: "Dimensions",
+ //assembly_charges: "Assembly Charges",
   };
+  
   // useEffect(async () => {
   //   window.addEventListener("scroll", scrollHandler, {
   //     passive: true,
@@ -409,7 +414,7 @@ function DetailOne(props) {
       </div>
 
       <div className="details-filter-row details-row-size">
-        <label htmlFor="size">Variant:</label>
+       
 {/*   
         <Col className="m-0 p-0">
           <select

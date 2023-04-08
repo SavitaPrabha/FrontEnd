@@ -348,7 +348,7 @@ function LoginModal() {
                                         className="forgot-link"
                                         style={{
                                           cursor: "pointer",
-                                          color: "#c4b7a6",
+                                          color: "#000000",
                                         }}
                                         onClick={handleForgotPassword}
                                       >

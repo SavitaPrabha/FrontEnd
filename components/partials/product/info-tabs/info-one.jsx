@@ -86,8 +86,6 @@ function InfoOne(props) {
     const response = await postSubmitForm(url,{product_id:product._id});
     if (response && response.status === 1) {
       setReviews(response.data);
-    } else {
-      toast.error(response.message);
     }
   }
 
@@ -96,7 +94,7 @@ function InfoOne(props) {
       <div className="product-details-tab">
         <TabList className="nav nav-pills justify-content-center">
           <Tab className="nav-item">
-            <span className="nav-link">Descriptions</span>
+            <span className="nav-link">Description</span>
           </Tab>
 
           <Tab className="nav-item">

@@ -330,7 +330,7 @@ function Cart(props) {
                       <center>
                         <Loader
                           type="Puff"
-                          color="#c4b7a6"
+                          color="#000000"
                           secondaryColor="Grey"
                           height={100}
                           width={100}
@@ -360,7 +360,7 @@ function Cart(props) {
                                     Please{" "}
                                     <ALink
                                       href="/login"
-                                      style={{ color: "#c4b7a6" }}
+                                      style={{ color: "#000000" }}
                                     >
                                       <span>Sign In / Register</span>
                                     </ALink>{" "}
@@ -381,7 +381,7 @@ function Cart(props) {
                                 )}
  <a
                                       style={{
-                                        color: "#c4b7a6",
+                                        color: "#000000",
                                         cursor: "pointer",
                                       }}
                                       onClick={() => {
@@ -397,7 +397,7 @@ function Cart(props) {
                                     <p>No addresses found.</p>
                                     <a
                                       href="/shop/dashboard"
-                                      style={{ color: "#c4b7a6" }}
+                                      style={{ color: "#000000" }}
                                     >
                                       go to account{" "}
                                       <i className="icon-long-arrow-right"></i>
