@@ -114,7 +114,7 @@ function MobileMenu() {
                       </li>
                     )}
                   </SlideToggle>
-                  <SlideToggle collapsed={true}>
+                  {/* <SlideToggle collapsed={true}>
                     {({ onToggle, setCollapsibleElement, toggleState }) => (
                       <li
                         className={
@@ -151,7 +151,7 @@ function MobileMenu() {
                         </ul>
                       </li>
                     )}
-                  </SlideToggle>
+                  </SlideToggle> */}
                 </ul>
               </nav>
             </TabPanel>
@@ -167,7 +167,7 @@ function MobileMenu() {
                               <ALink
                                 href={
                                   "/shop/sidebar/3cols?category=" +
-                                  item.category
+                                  item.name
                                 }
                                 scroll={false}
                                 onClick={(e) => {
@@ -175,10 +175,10 @@ function MobileMenu() {
                                   e.preventDefault();
                                 }}
                               >
-                                {item.category}
+                                {item.name}
                               </ALink>
 
-                              <ul className="menu-vertical sf-arrows ">
+                              {/* <ul className="menu-vertical sf-arrows ">
                                 {item.sub_category &&
                                   item.sub_category.map((i, idx) => {
                                     return (
@@ -206,7 +206,7 @@ function MobileMenu() {
                                       </>
                                     );
                                   })}
-                              </ul>
+                              </ul> */}
                             </li>
                           </>
                         );
