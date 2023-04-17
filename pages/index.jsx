@@ -335,7 +335,7 @@ function Home() {
         <div className="icon-boxes-container">
           <div className="container">
             <div className="row">
-              <div className="col-sm-6 col-lg-3">
+              <div className="col-sm-6 col-lg-4">
                 <div className="icon-box icon-box-side">
                   <span className="icon-box-icon text-dark">
                     <i className="icon-truck"></i>
@@ -348,7 +348,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="col-sm-6 col-lg-3">
+              <div className="col-sm-6 col-lg-4">
                 <div className="icon-box icon-box-side">
                   <span className="icon-box-icon text-dark">
                     <i className="icon-clock-o"></i>
@@ -362,7 +362,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="col-sm-6 col-lg-3">
+              {/* <div className="col-sm-6 col-lg-3">
                 <div className="icon-box icon-box-side">
                   <span className="icon-box-icon text-dark">
                     <i className="icon-certificate"></i>
@@ -374,9 +374,9 @@ function Home() {
                     <p>1 Year manufacturer warranty</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="col-sm-6 col-lg-3">
+              <div className="col-sm-6 col-lg-4">
                 <div className="icon-box icon-box-side">
                   <span className="icon-box-icon text-dark">
                     <i className="icon-headphones"></i>
